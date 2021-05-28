@@ -1,0 +1,6 @@
+module.exports.profile=function(req,res)
+{
+    return res.render('profile',{
+        name:"Sachin Gupta"
+    });
+}
