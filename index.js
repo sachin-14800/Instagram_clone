@@ -7,9 +7,10 @@ app.use(express.urlencoded());
 app.set('view engine','ejs');
 app.set('views','./views');
 app.use(express.static('assests'));
-app.get('/',function(req,res){
-    return res.render('home');
-});
+app.use('/',require('./routes'));
+// app.get('/',function(req,res){
+//     return res.render('home');
+// });
 app.listen(port,function(err){
     if(err)
     {
