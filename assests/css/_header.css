@@ -12,6 +12,25 @@ nav {
   justify-content: space-between;
 }
 
+nav ul {
+  display: flex;
+  position: relative;
+  right: 10%;
+  justify-content: space-between;
+}
+
+nav ul li {
+  display: block;
+  position: relative;
+  padding-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: large;
+  color: blueviolet;
+}
+
 .mini-logo {
   display: block;
   position: relative;
@@ -19,25 +38,6 @@ nav {
 }
 
 .mini-logo p a {
-  text-decoration: none;
-  font-size: large;
-  color: blueviolet;
-}
-
-ul {
-  display: flex;
-  position: relative;
-  right: 10%;
-  justify-content: space-between;
-}
-
-li {
-  display: block;
-  position: relative;
-  padding-right: 20px;
-}
-
-li a {
   text-decoration: none;
   font-size: large;
   color: blueviolet;

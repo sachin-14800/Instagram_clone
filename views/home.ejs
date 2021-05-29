@@ -1,2 +1,20 @@
-
+<link rel="stylesheet" href="/css/home.css">
 <h1>Welcome !!! Hope you doing good.</h1>
+
+<section id="feed-posts">
+    <h4>Posts</h4>
+    <% if(locals.user) {%>
+        <form action="/post/create"id="new-post-form" method="POST">
+            <textarea name="content"  cols="30" rows="10" placeholder="Enter your content to be posted"></textarea>
+            <input type="submit">
+        </form>
+        <% } %>
+        <div id="post-list-container">
+            <ul>
+                <% for(p of post){%>
+                    <li><%= p.content %></li>
+                    <li><%= p.user.name %></li>
+                <%}%>
+            </ul>
+        </div>
+</section>

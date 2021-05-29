@@ -10,6 +10,24 @@ nav{
     top:-30%;
     display: flex;
     justify-content: space-between;
+    ul{
+        display: flex;
+        position: relative;
+        right:10%;
+        justify-content: space-between;
+        li{
+            display: block;
+            position: relative;
+            padding-right: 20px;
+            a{
+                text-decoration: none;
+                font-size: large;
+                color: blueviolet;
+            }
+        }
+
+    }
+
 }
 .mini-logo{
     display: block;
@@ -26,19 +44,4 @@ nav{
     }
     
 }
-ul{
-    display: flex;
-    position: relative;
-    right:10%;
-    justify-content: space-between;
-}
-li{
-    display: block;
-    position: relative;
-    padding-right: 20px;
-}
-li a{
-    text-decoration: none;
-    font-size: large;
-    color: blueviolet;
-}
+
