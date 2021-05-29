@@ -1,10 +1,12 @@
 const port=8000;
 const express=require('express');
 const expressEjsLayouts = require('express-ejs-layouts');
-
+const cookieParser=require('cookie-parser');
 const db=require('./config/mongoose');
 const app=express();
+
 app.use(express.urlencoded());
+app.use(cookieParser());
 app.use(expressEjsLayouts);
 app.set('LayoutextractStyles',true);
 app.set('LayoutextractScripts',true);
