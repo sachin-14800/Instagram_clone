@@ -12,6 +12,11 @@
         <div id="post-list-container">
             <ul>
                 <% for(p of post){%>
+                    <% if (locals.user && locals.user.id == p.user.id){ %>
+                        <small>
+                            <a class="delete-post-button"  href="/post/destroy/<%= p.id %>">X</a>
+                        </small>
+                    <% } %>
                     <li><%= p.content %></li>
                     <li><%= p.user.name %></li>
                     <div class="post-comments">
