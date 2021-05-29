@@ -1,0 +1,39 @@
+#layout-header{
+    position: relative;
+    top:0%;
+    border:1px solid blueviolet;
+    border-radius: 2%;
+    
+}
+nav{
+    position: relative;
+    top:-30%;
+    display: flex;
+    justify-content: space-between;
+}
+.mini-logo{
+    display: block;
+    position: relative;
+    left:10%;
+}
+.mini-logo p a{
+    text-decoration: none;
+    font-size: large;
+    color: blueviolet;
+}
+ul{
+    display: flex;
+    position: relative;
+    right:10%;
+    justify-content: space-between;
+}
+li{
+    display: block;
+    position: relative;
+    padding-right: 20px;
+}
+li a{
+    text-decoration: none;
+    font-size: large;
+    color: blueviolet;
+}
