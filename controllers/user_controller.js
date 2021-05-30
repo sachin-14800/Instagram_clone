@@ -1,28 +1,37 @@
 const User = require("../models/user");
 
-module.exports.profile=function(req,res)
+module.exports.profile=async function(req,res)
 {
-    User.findById(req.params.id,function(err,user){
-        return res.render('profile',{
-            title:"Instagram",
-            profile_user:user
-        });
+    try{
+    let user=await User.findById(req.params.id);
+    return res.render('profile',{
+        title:"Instagram",
+        profile_user:user
     });
+    }
+    catch(err)
+    {
+        console.log('Error',err);
+        return;
+    }
     
 }
-module.exports.update=function(req,res)
+module.exports.update=async function(req,res)
 {
+    try{
     if(req.user.id==req.params.id)
     {
-        User.findByIdAndUpdate(req.params.id,req.body,function(err,user) {
-            if(err)
-            return;
-            return res.redirect('back');
-        });
+        let user=await User.findByIdAndUpdate(req.params.id,req.body);
+        return res.redirect('back');
     }
     else
     {
         return res.status(401).send('Unauthorized');
+    }
+    }
+    catch(err){
+        console.log('Error',err);
+        return ;
     }
 }
 module.exports.signUp=function(req,res)
