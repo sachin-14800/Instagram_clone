@@ -22,6 +22,7 @@ module.exports.update=async function(req,res)
     if(req.user.id==req.params.id)
     {
         let user=await User.findByIdAndUpdate(req.params.id,req.body);
+        req.flash('success','Successfully updated');
         return res.redirect('back');
     }
     else
@@ -87,14 +88,14 @@ module.exports.createSession=function(req,res)
 
 module.exports.destroySession=function(req,res)
 {
-    // req.logout();
-    // return res.redirect('/');
+    req.logout();
+    req.flash('success','Logged Out successfully');
+    return res.redirect('/');
     
-
-    req.session.destroy(function(err){
-        if(err)
-        return;
-        req.flash('success','Logged Out successfully');
-        res.redirect('/');
-    })
+    // req.session.regenerate(function(err){
+    //     res.clearCookie('instagram');
+        
+    //     res.redirect('/');
+    // });
+   
 }
