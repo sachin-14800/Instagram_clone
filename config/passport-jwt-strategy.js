@@ -5,7 +5,7 @@ const ExtractJWT=require('passport-jwt').ExtractJwt;
 const User=require('../models/user');
 //header has list of keys has key authorisation and that also has list of keys and key named bearer having the JWT token
 let opts={
-    jwtFromRequest:ExtractJWT.fromAuthHeaderAsBearerToken,
+    jwtFromRequest:ExtractJWT.fromAuthHeaderAsBearerToken(),
     secretOrKey:'Instagram'
 }
 
