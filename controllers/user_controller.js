@@ -108,14 +108,10 @@ module.exports.createSession=function(req,res)
 
 module.exports.destroySession=function(req,res)
 {
-    req.logout();
-    req.flash('success','Logged Out successfully');
-    return res.redirect('/');
-    
-    // req.session.regenerate(function(err){
-    //     res.clearCookie('instagram');
-        
-    //     res.redirect('/');
-    // });
+    // req.logout();
+    req.session.destroy(function(err){
+        // req.flash('success','Logged Out successfully');
+        return res.redirect('/');
+    });
    
 }
