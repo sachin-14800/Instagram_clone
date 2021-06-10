@@ -1,11 +1,17 @@
 const User = require("../models/user");
 const path=require('path');
 const fs=require('fs');
-
+const crypto=require('crypto');
+const ResetPassword=require('../models/reset_password');
+const queue = require('../config/kue');
+const forgetPasswordMailer=require('../mailers/forget_password_mailer');
+const passowordEmailWorker=require('../workers/password_email_worker');
 module.exports.profile=async function(req,res)
 {
+
     try{
     let user=await User.findById(req.params.id);
+    // console.log(user);
     return res.render('profile',{
         title:"Instagram",
         profile_user:user
@@ -108,10 +114,70 @@ module.exports.createSession=function(req,res)
 
 module.exports.destroySession=function(req,res)
 {
-    // req.logout();
-    req.session.destroy(function(err){
-        // req.flash('success','Logged Out successfully');
-        return res.redirect('/');
-    });
+    req.logout();
+    req.flash('success','Logged Out successfully');
+    return res.redirect('/');
+    // req.session.destroy(function(err){
+    //     
+       
+    // });
    
+}
+
+//if authenticated then go to profile page
+module.exports.forget=(req,res)=>{
+    return res.render('forget-password',{
+        title:"Forgot",
+    });
+}
+module.exports.createToken=async (req,res)=>{
+    let user=await User.findOne({email:req.body.email});
+    if(!user)
+    {
+        req.flash('error',"First Need to sign up");
+        return res.redirect('/user/sign-up');
+    }
+    let object=await ResetPassword.create({
+        user:user,
+        accessToken:crypto.randomBytes(20).toString('hex')
+    });
+    let job=queue.create('password',object).save(function(err){
+        if(err)
+        {
+            console.log('Error in creating queue');
+            return ;
+        }
+        console.log(job.id);
+    });
+    req.flash('success','Email has been send');
+    return res.redirect('/user/sign-in');
+}
+
+module.exports.newPassword=async (req,res)=>{
+    let object=await ResetPassword.findOne({accessToken:req.params.id});
+     if(object.isValid){
+        req.flash('error','Password already changed');
+    return res.redirect('back');}
+    console.log(object.user);
+    return res.render('new-password',{
+        title:"Forgot",
+        object:object
+    });
+}
+module.exports.updatePassword=async(req,res)=>{
+    let object=await ResetPassword.findOne({acesssToken:req.body.accessToken});
+    console.log(object);
+   
+    if(req.body.password!=req.body.confirm_password)
+    {
+        return res.redirect('back');
+    }
+
+     object=await ResetPassword.findOneAndUpdate(req.body.accessToken,{isValid:false});
+    object.save();
+    let user=await User.findByIdAndUpdate(object.user,{password:req.body.password});
+    // console.log(user.email);
+    user.save();
+    req.flash('success','Password Change Successfully');
+    return res.redirect('/user/sign-in');
 }
