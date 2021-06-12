@@ -1,6 +1,18 @@
 const User=require('../../../models/user');
 const jwt=require('jsonwebtoken');
-
+module.exports.index= async function(req,res){
+    let users=await User.find({});
+    let count=await User.count();
+    let arr=[];
+    for(let i=0;i<count;i++)
+    {
+        arr.push(users[i].name);
+    }
+    return res.json(200,{
+        message:"List of Users",
+        user_handles:arr
+    })
+}
 module.exports.createSession=async function(req,res)
 {
     try{
