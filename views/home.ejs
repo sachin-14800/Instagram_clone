@@ -5,8 +5,9 @@
     <h4>Posts</h4>
     <% if(locals.user) {%>
         <form action="/post/create" id="new-post-form" enctype="multipart/form-data" method="POST">
-            <input type="file" name="post" placeholder="Add an image">
-            <textarea name="content"  cols="30" rows="10" placeholder="Enter your content to be posted"></textarea>
+            <input type="file" name="post" id="new_post_preview" placeholder="Add an image">
+            <div class="new-post"><img id="blah" src="https://static.thenounproject.com/png/340719-200.png" alt="your image" /></div>
+            <textarea name="content"  cols="30" rows="5" placeholder="Enter your content to be posted"></textarea>
             <input type="submit">
         </form>
         <% } %>
@@ -28,3 +29,4 @@
         <%}%>
 </section>
 <script src="/js/home_posts.js"></script>
+<script src="/js/new_post_preview.js"></script>
