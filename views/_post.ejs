@@ -4,6 +4,8 @@
             <a class="delete-post-button"  href="/post/destroy/<%= p.id %>">X</a>
         </small>
     <% } %>
+    <!-- showing the post -->
+    <img src="<%= p.path %>" alt="<%= p.user.name %>" width="100">
     <%= p.content %><br>
     <%= p.user.name %>
     <div class="post-comments">

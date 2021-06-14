@@ -1,8 +1,21 @@
 const Post=require('../models/post');
 const Comment=require('../models/comment');
+const path=require('path');
+const fs=require('fs');
 module.exports.create=async function(req,res){
     try{
-        let post=await Post.create({content:req.body.content,user:req.user._id});
+        Post.uploadedPost(req,res,function(err){
+            if(err)
+            {
+                console.log('Multer Error',err);
+            }
+            let paths=path.join(Post.postPath,'/',req.user.name);
+            console.log(paths);
+            if(req.file)
+            {
+                paths=path.join(paths,'/',req.file.filename);
+            }
+            let post= Post.create({path:paths,content:req.body.content,user:req.user._id});
         if(req.xhr){
             return res.status(200).json({
                 data:{
@@ -11,6 +24,8 @@ module.exports.create=async function(req,res){
                 message:"Post created!"
             });
         }
+        });
+        
         req.flash('success','New post is added');
         return res.redirect('back');
     }
