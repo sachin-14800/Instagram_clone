@@ -1,13 +1,14 @@
 <link rel="stylesheet" href="/css/home.css">
+<link rel="stylesheet" href="/css/chat_box.css">
 <h1>Welcome !!! Hope you doing good.</h1>
 
 <section id="feed-posts">
     <h4>Posts</h4>
     <% if(locals.user) {%>
         <form action="/post/create" id="new-post-form" enctype="multipart/form-data" method="POST">
-            <input type="file" name="post" id="new_post_preview" placeholder="Add an image">
+            <input type="file" name="post" id="new_post_preview" required >
             <div class="new-post"><img id="blah" src="https://static.thenounproject.com/png/340719-200.png" alt="your image" /></div>
-            <textarea name="content"  cols="30" rows="5" placeholder="Enter your content to be posted"></textarea>
+            <textarea name="content"  cols="30" rows="5" placeholder="Enter your content to be posted" ></textarea>
             <input type="submit">
         </form>
         <% } %>
@@ -19,14 +20,21 @@
             </ul>
         </div>
 </section>
-<input id="user-name" type="text" />Search User
+<%- include('_chat_box') -%>
 <section id="all-users">
     <h4>Friends</h4>
-    <% for(user of all_users){ %>
+    <% for(u of all_users){ %>
         <p>
-            <a href="/user/profile/<%=user.id%>"><%=user.name%></a>
+            <a href="/user/profile/<%=u.id%>"><%=u.name%></a>
         </p>
         <%}%>
 </section>
 <script src="/js/home_posts.js"></script>
 <script src="/js/new_post_preview.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.5/socket.io.js" integrity="sha512-2rUSTSAeOO02jF6eBqENNqPs1EohenJ5j+1dgDPdXSLz9nOlrr8DJk4zW/lDy8rjhGCSonW3Gx812XJQIKZKJQ==" crossorigin="anonymous"></script>
+<script src="/js/chat_engine.js"></script>
+<% if (locals.user){ %>
+<script>
+    new ChatEngine('user-chat-box', '<%= locals.user.email %>')
+</script>
+<% } %>

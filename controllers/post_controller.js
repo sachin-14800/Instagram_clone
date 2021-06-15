@@ -1,5 +1,6 @@
 const Post=require('../models/post');
 const Comment=require('../models/comment');
+const Like=require('../models/like');
 const path=require('path');
 const fs=require('fs');
 module.exports.create=async function(req,res){
@@ -41,6 +42,10 @@ try{
     let post=await Post.findById(req.params.id);
     if(post.user==req.user.id)
         {
+            // console.log(path.join(__dirname,'..',post.path));
+            fs.unlinkSync(path.join(__dirname,'..',post.path));
+            // await Like.deleteMany({likeable:post,onmodel:'Post'});
+            // await Like.deleteMany({_id:{$in:post.comments}});
             post.remove();
            await Comment.deleteMany({post:req.params.id});
            if(req.xhr){

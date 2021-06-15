@@ -2,12 +2,11 @@ const mongoose=require('mongoose');
 
 const likeSchema=mongoose.Schema({
     user:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'User'
+        type:mongoose.Schema.ObjectId,
     },
     //this defines the objectId of the object.
     likeable:{
-        type:mongoose.Schema.Types.ObjectId,
+        type:mongoose.Schema.ObjectId,
         require:true,
         refPath:'onModel'
     },
