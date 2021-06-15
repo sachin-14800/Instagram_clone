@@ -42,7 +42,7 @@ try{
     let post=await Post.findById(req.params.id);
     if(post.user==req.user.id)
         {
-            // console.log(path.join(__dirname,'..',post.path));
+            
             fs.unlinkSync(path.join(__dirname,'..',post.path));
             // await Like.deleteMany({likeable:post,onmodel:'Post'});
             // await Like.deleteMany({_id:{$in:post.comments}});
