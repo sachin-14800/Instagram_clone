@@ -21,7 +21,8 @@ module.exports.home=async function(req,res)
     return res.render('home',{
         title:"Home page",
         post:posts,
-        all_users:users
+        all_users:users,
+        value:true
     });
     }
     catch(err){

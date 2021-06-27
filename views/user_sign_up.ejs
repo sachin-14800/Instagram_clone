@@ -1,7 +1,16 @@
-<form action="/user/create" method="POST">
-    <input type="text" name="name" placeholder="Username" required>Username
-    <input type="text" name="email" placeholder="Enter the email" required>Email
-    <input type="password" name="password" placeholder="Password" required>Password
-    <input type="password" name="confirm_password" placeholder="Confirm Password">Confirm Password
-    <input type="submit">Submit
-</form>
+<link rel="stylesheet" href="/css/user-sign-up.css">
+<div class="sign-up">
+    <div class="home">
+        <a href="/">X</a>
+    </div>
+    <form action="/user/create" method="POST" class="sign-up-form">
+        <input type="text" name="name" placeholder="Username" required>
+        <input type="text" name="email" placeholder="Enter the email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="password" name="confirm_password" placeholder="Confirm Password">
+        <input type="submit" value="Sign up">
+    </form>
+</div>
+<div class="sign-in">
+    Don't have an account? <a href="/user/sign-in">Sign in</a>
+</div>

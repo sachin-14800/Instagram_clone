@@ -1,11 +1,91 @@
-.sachin{
-    font-size: 10rem;
-}
 .new-post{
     img{
         position: relative;
     width:360px;
     overflow: hidden;
+    }
+}
+#home-posts-container{
+    height:auto;
+    width:50%;
+    position: relative;
+    left:20%;
+    #post-list-container{
+        ul{
+            display: block;
+            li{
+                list-style: none;
+                div{
+                    position: relative;
+                    background-color: wheat;
+                    display: flex;
+                    width: auto;
+                    border-radius: 2rem;
+                    flex-direction: column;
+                    .post-heading{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: start;
+                        padding-left:2.5rem;
+                        padding-top: 0.5rem;
+                        padding-bottom: 0.5rem;
+                        .user-name{
+                            padding-top: 1rem;
+                            padding-left: 1rem;
+                            font-weight: bold;
+                            color: blueviolet;
+                        }
+                        img{
+                            position: relative;
+                            height:3.5rem;
+                            width: 3.5rem;
+                            border-radius: 50%;
+                        }
+                    }
+                    .post-image{
+                        img{
+                            height: 40rem;
+                            width: 40rem;
+                            align-self: center;
+                        }
+                    }
+                    .post-content{
+                        padding-left:2.5rem;
+                        padding-top: 0.5rem;
+                        padding-bottom: 0.5rem;
+                        display: flex;
+                        flex-direction: row;
+                    }
+                    .post-comments{
+                        padding-left:2.5rem;
+                        padding-top: 0.5rem;
+                        padding-bottom: 0.5rem;
+                        form{
+                            height: 2.5rem;
+                            width: 100%;
+                            position: relative;
+                            display: flex;
+                            input{
+                                border:none;
+                                position: relative;
+                                height: auto;
+                                width: fit-content;
+                            }
+                            input[type=text]{
+                                width: 85%;
+                            }
+                            input[type=submit]
+                            {
+                                width: 10%;
+                                color:blueviolet;
+                                font-weight: bold;
+                                background-color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

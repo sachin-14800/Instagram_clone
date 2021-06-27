@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Post=require("../models/post");
 const path=require('path');
 const fs=require('fs');
 const crypto=require('crypto');
@@ -11,10 +12,23 @@ module.exports.profile=async function(req,res)
 
     try{
     let user=await User.findById(req.params.id);
-    // console.log(user);
+    let post=await Post.find({user:req.params.id})
+    .sort('-createdAt')
+    .populate('user')
+    .populate({
+        path:'comments',
+        populate:{
+            path:'user'
+        },
+        populate:{
+            path:'like'
+        }
+    }).populate('like');
     return res.render('profile',{
         title:"Instagram",
-        profile_user:user
+        profile_user:user,
+        post:post,
+        value:false,
     });
     }
     catch(err)

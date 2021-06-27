@@ -1,22 +1,34 @@
 <li id="post-<%=post._id%>">
-    <% if (locals.user && locals.user.id == p.user.id){ %>
+    <% if (locals.user && locals.user.id == p.user.id && value){ %>
         <small>
             <a class="delete-post-button"  href="/post/destroy/<%= p.id %>">X</a>
         </small>
     <% } %>
     <!-- showing the post -->
-    <img src="<%= p.path %>" alt="<%= p.user.name %>" width="100">
-    <%= p.content %><br>
-    <%= p.user.name %>
+    <div>
+        <% if(value){%>
+        <div class="post-heading">
+            <div><img src="<%= p.user.avatar %>" alt="<%= p.user.name %>" width="100"></div>
+            <div class='user-name'><%= p.user.name %></div>
+            
+        </div>
+        <%}%>
+    <div class="post-image"><img src="<%= p.path %>" alt="<%= p.user.name %>" width="100"></div>
+    <% if(value){%>
+    <div class="post-content"><div style="font-weight: bold;"><%= p.user.name %></div>&emsp;<div><%= p.content %></div></div>
+    <%}%>
+    
+    <% if(value){%>
     <div class="post-comments">
         <% if(locals.user){%>
-            <form action="/comment/create" method="POST">
-                <input type="text" name="content" placeholder="Type here...">
+            <form id="post-<%= post._id %>-comments-form" action="/comment/create" method="POST">
+                <input type="text" name="content" placeholder="Add a comment">
                 <!-- important to recognise on which post the comment is added -->
                 <input type="hidden" name="post" value="<%= p._id%>">
-                <input type="submit" value="Add comment">
+                <input type="submit" value="Post">
             </form>
             <%}%>
+            
             <div class="post-comments-list">
                 <ul id="post-comments-<%= post._id %>">
                     <% for (comment of p.comments){%>
@@ -27,6 +39,11 @@
                     <%} %>
                 </ul>
             </div>
+            
         
     </div>
+    <% }%>
+</div>
 </li>
+<br>
+<br>

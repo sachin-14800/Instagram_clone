@@ -16,7 +16,7 @@ module.exports.create=async function(req,res){
             {
                 paths=path.join(paths,'/',req.file.filename);
             }
-            let post= Post.create({path:paths,content:req.body.content,user:req.user._id});
+            let post= Post.create({path:paths,content:req.body.content,user:req.user});
         if(req.xhr){
             return res.status(200).json({
                 data:{
