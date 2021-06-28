@@ -2,14 +2,7 @@
 <link rel="stylesheet" href="/css/chat_box.css">
 
 <section id="feed-posts">
-    <% if(locals.user) {%>
-        <form action="/post/create" id="new-post-form" enctype="multipart/form-data" method="POST">
-            <input type="file" name="post" id="new_post_preview" required >
-            <div class="new-post"><img id="blah" src="https://static.thenounproject.com/png/340719-200.png" alt="your image" /></div>
-            <textarea name="content" id="content" cols="30" rows="5" placeholder="Enter your content to be posted" ></textarea>
-            <input type="submit">
-        </form>
-        <% } %>
+    
         <div id="home-posts-container">
         <div id="post-list-container">
             <ul>
@@ -30,7 +23,6 @@
         <%}%>
 </section>
 <script src="/js/home_post.js" ></script>
-<script src="/js/new_post_preview.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.5/socket.io.js" integrity="sha512-2rUSTSAeOO02jF6eBqENNqPs1EohenJ5j+1dgDPdXSLz9nOlrr8DJk4zW/lDy8rjhGCSonW3Gx812XJQIKZKJQ==" crossorigin="anonymous"></script>
 <script src="/js/chat_engine.js"></script>
 <% if (locals.user){ %>

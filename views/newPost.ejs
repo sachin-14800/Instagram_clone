@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/css/newPost.css">
+<% if(locals.user) {%>
+    <form action="/post/create" id="new-post-form" enctype="multipart/form-data" method="POST">
+        <div class="home">
+            <a href="/">X</a>
+        </div>
+        <button type="submit">
+            <i class="fas fa-check"></i>
+        </button>
+        <input type="file" name="post" id="new_post_preview" required >
+        <div class="new-post"><img id="blah" src="https://static.thenounproject.com/png/340719-200.png" alt="your image" /></div>
+        <input name="content" id="content" cols="30" rows="2" placeholder="Write a caption" >
+        
+    </form>
+    <% } %>
+    <script src="/js/new_post_preview.js"></script>

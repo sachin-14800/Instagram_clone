@@ -21,10 +21,6 @@ const postSchema=new mongoose.Schema({
             ref:'Comment'
         }
     ],
-    favourite:{
-        type:Boolean,
-        default:false  //default a task is not favourite
-    },
     likes:[
     {
         type:mongoose.Schema.Types.ObjectId,

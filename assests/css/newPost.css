@@ -1,0 +1,56 @@
+form {
+  position: relative;
+  margin-top: 5%;
+  padding: 2rem;
+  background-image: linear-gradient(#8c76fc, #c38dfd, #e797fd);
+  left: 25%;
+  text-align: center;
+  width: 50%;
+  border-radius: 1rem;
+  overflow-x: hidden;
+}
+
+form .home {
+  display: inline;
+}
+
+form .home a {
+  text-decoration: none;
+  color: black;
+  font-size: 3rem;
+  font-weight: bolder;
+  position: relative;
+  left: 45%;
+}
+
+form input[type=file] {
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+form button {
+  display: inline;
+  width: 10%;
+  position: relative;
+  display: block;
+  left: 82%;
+  margin-top: -7%;
+  font-size: 3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+form #content {
+  border: none;
+  height: 2rem;
+  width: 20rem;
+  border-radius: 0.2rem;
+}
+
+form .new-post img {
+  height: 30rem;
+  width: 30rem;
+  align-self: center;
+  padding: 2rem;
+}

@@ -7,6 +7,17 @@ const ResetPassword=require('../models/reset_password');
 const queue = require('../config/kue');
 const forgetPasswordMailer=require('../mailers/forget_password_mailer');
 const passowordEmailWorker=require('../workers/password_email_worker');
+module.exports.newPost=function(req,res){
+    if(req.isAuthenticated())
+    {
+        return res.render('newPost',{
+            title:"NewPost"
+        });
+    }
+    return res.render('user_sign_up',{
+        title:"Instagram | Sign Up"
+    });
+}
 module.exports.profile=async function(req,res)
 {
 

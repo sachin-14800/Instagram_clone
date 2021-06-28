@@ -28,7 +28,7 @@ module.exports.create=async function(req,res){
         });
         
         req.flash('success','New post is added');
-        return res.redirect('back');
+        return res.redirect('/');
     }
     catch(err){
        req.flash('error',err);
