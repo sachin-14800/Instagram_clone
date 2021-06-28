@@ -9,7 +9,13 @@
     <div class="details">
         <div class="detail">
             <div class="name"><%= profile_user.name %></div>
+            <%if(profile_user.id==user.id){%>
         <div class="edit"> <a href="">Edit profile</a></div>
+        <%}else{%>
+            <button class="follow-user-button">
+                <a href="">Follow</a>
+            </button>
+            <%}%>
         </div>
         <div class="detail">
             <div class="number"><b><%= post.length%></b> Posts</div>
