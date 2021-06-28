@@ -12,13 +12,19 @@
             <%if(profile_user.id==user.id){%>
         <div class="edit"> <a href="">Edit profile</a></div>
         <%}else{%>
-            <button class="follow-user-button">
-                <a href="">Follow</a>
+            <button >
+                <% if(follow){%>
+                    <a class="toggle-follow-button" href="/follow/toggle/?fromuser=<%=user._id%>&touser=<%=profile_user.id%>">Unfollow</a>
+                    <%}else{%>
+                <a class="toggle-follow-button" href="/follow/toggle/?fromuser=<%=user._id%>&touser=<%=profile_user.id%>">Follow</a>
+                <%}%>
             </button>
             <%}%>
         </div>
         <div class="detail">
             <div class="number"><b><%= post.length%></b> Posts</div>
+            <div class="follower" follows="<%=profile_user.followers.length%>"><b><%=profile_user.followers.length%></b> Followers</div>
+            <div class="number"><b><%=profile_user.following.length%></b> Following</div>
         </div>
         <div class="detail">
             <div class="number">Mail:<%= profile_user.email %></div>
@@ -40,16 +46,10 @@
     </ul>
 </div>
 </section>
-
-
-<!-- <% if(user.id==profile_user.id){%>
-    <form action="/user/update/<%= profile_user.id%>" enctype="multipart/form-data" method="POST">
-        <input type="text" name="name" placeholder="Your Name" value="<%= profile_user.name%>" required>
-        <input type="email" name="email" placeholder="Your email" value="<%= profile_user.email%>" required>
-        <input type="file" name="avatar" placeholder="Profile picture">
-        <input type="submit" value="update"> 
-
-    </form>
-<%}else{%>
-    <%= profile_user.name%>
-<%}%> -->
+<script src="/js/toggle_follow.js"></script>
+<script>
+    $('.toggle-follow-button').each(function(){
+        let self=this;
+        let toggleFollow=new ToggleFollow(self);
+    });
+</script>

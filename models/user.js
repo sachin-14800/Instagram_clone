@@ -21,6 +21,12 @@ const userSchema=new mongoose.Schema({
     avatar:{
         type:String
     },
+    following:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'follow'
+        }
+    ],
     followers:[
         {
             type:mongoose.Schema.Types.ObjectId,

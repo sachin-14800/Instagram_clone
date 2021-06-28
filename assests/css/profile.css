@@ -35,6 +35,7 @@ section .user-details .details {
 section .user-details .details .detail {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 section .user-details .details .detail .name {
@@ -49,6 +50,10 @@ section .user-details .details .detail .edit {
 }
 
 section .user-details .details .detail .number {
+  font-size: 1.3rem;
+}
+
+section .user-details .details .detail .follower {
   font-size: 1.3rem;
 }
 

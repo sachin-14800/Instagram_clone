@@ -25,7 +25,8 @@ section{
             justify-content: space-evenly;
             .detail{
                 display: flex;
-                flex-direction: row;  
+                flex-direction: row;
+                justify-content: space-between;  
                 .name{
                     font-size: 2rem;
                     position: relative;
@@ -36,6 +37,9 @@ section{
                     text-decoration: none;
                 }
                 .number{
+                    font-size: 1.3rem;
+                }
+                .follower{
                     font-size: 1.3rem;
                 }
             }

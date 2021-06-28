@@ -7,6 +7,7 @@ const ResetPassword=require('../models/reset_password');
 const queue = require('../config/kue');
 const forgetPasswordMailer=require('../mailers/forget_password_mailer');
 const passowordEmailWorker=require('../workers/password_email_worker');
+const Follow = require("../models/follow");
 module.exports.newPost=function(req,res){
     if(req.isAuthenticated())
     {
@@ -22,7 +23,7 @@ module.exports.profile=async function(req,res)
 {
 
     try{
-    let user=await User.findById(req.params.id);
+    let user=await User.findById(req.params.id).populate('follow');
     let post=await Post.find({user:req.params.id})
     .sort('-createdAt')
     .populate('user')
@@ -35,11 +36,18 @@ module.exports.profile=async function(req,res)
             path:'like'
         }
     }).populate('like');
+    let follower=await Follow.find({from_user:req.user.id,to_user:req.params.id});
+    let follow=false;
+    if(follower.length!=0)
+    {
+        follow=true;
+    }
     return res.render('profile',{
         title:"Instagram",
         profile_user:user,
         post:post,
         value:false,
+        follow:follow,
     });
     }
     catch(err)
