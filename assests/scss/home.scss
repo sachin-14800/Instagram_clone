@@ -1,15 +1,16 @@
-.new-post{
-    img{
-        position: relative;
-    width:360px;
-    overflow: hidden;
-    }
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
+#feed-posts{
+    width:60%;
+    position: relative;
+    left:15%;
 #home-posts-container{
     height:auto;
-    width:50%;
+    width:80%;
     position: relative;
-    left:20%;
     #post-list-container{
         ul{
             display: block;
@@ -84,6 +85,35 @@
                         }
                     }
                 }
+            }
+        }
+    }
+}
+}
+#aside{
+    width:30%;
+    position: relative;
+    left:-3%;
+    .aside-container
+    {   
+        
+            display: flex;
+            flex-direction: row;
+            
+            div{
+                text-decoration: none;
+                img{
+                    height:5rem;
+                    width: 5rem;
+                    border-radius: 50%;
+                    }   
+                }
+        .user-name{
+            padding:7%;
+            font-size: 1.5rem;
+            font-family: sans-serif;
+            a{
+                text-decoration: none;
             }
         }
     }

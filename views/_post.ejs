@@ -1,11 +1,12 @@
 <li id="post-<%=post._id%>">
-    <% if (locals.user && locals.user.id == p.user.id && value){ %>
-        <small>
-            <a class="delete-post-button"  href="/post/destroy/<%= p.id %>">X</a>
-        </small>
-    <% } %>
+    
     <!-- showing the post -->
     <div>
+        <% if (locals.user && locals.user.id == p.user.id && value){ %>
+            <small>
+                <a class="delete-post-button"  href="/post/destroy/<%= p.id %>">X</a>
+            </small>
+        <% } %>
         <% if(value){%>
         <div class="post-heading">
             <div><img src="<%= p.user.avatar %>" alt="<%= p.user.name %>" width="100"></div>
@@ -15,6 +16,11 @@
         <%}%>
     <div class="post-image"><img src="<%= p.path %>" alt="<%= p.user.name %>" width="100"></div>
     <% if(value){%>
+        <% if(locals.user){%>
+            <a class="toggle-like-button" data-likes="<%= p.likes.length%>"href="/like/toggle/?id=<%=p._id%>&type=Post"><%= p.likes.length%>Likes</a>
+            <%}else{%>
+                <%= p.likes.length%>Likes
+            <%}%>
     <div class="post-content"><div style="font-weight: bold;"><%= p.user.name %></div>&emsp;<div><%= p.content %></div></div>
     <%}%>
     

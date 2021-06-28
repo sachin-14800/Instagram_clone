@@ -17,14 +17,6 @@ module.exports.create=async function(req,res){
                 paths=path.join(paths,'/',req.file.filename);
             }
             let post= Post.create({path:paths,content:req.body.content,user:req.user});
-        if(req.xhr){
-            return res.status(200).json({
-                data:{
-                    post:post
-                },
-                message:"Post created!"
-            });
-        }
         });
         
         req.flash('success','New post is added');
@@ -44,8 +36,8 @@ try{
         {
             
             fs.unlinkSync(path.join(__dirname,'..',post.path));
-            // await Like.deleteMany({likeable:post,onmodel:'Post'});
-            // await Like.deleteMany({_id:{$in:post.comments}});
+            await Like.deleteMany({likeable:post,onmodel:'Post'});
+            await Like.deleteMany({_id:{$in:post.comments}});
             post.remove();
            await Comment.deleteMany({post:req.params.id});
            if(req.xhr){

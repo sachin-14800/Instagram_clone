@@ -21,42 +21,48 @@ nav ul {
   justify-content: space-between;
 }
 
-nav ul li {
+nav ul .list {
   display: block;
   position: relative;
   padding-right: 20px;
 }
 
-nav ul li a {
+nav ul .list a {
   text-decoration: none;
   font-size: 1.5rem;
   color: blueviolet;
 }
 
-nav ul #user {
+nav ul #user-class {
+  position: relative;
   font-size: 1.5rem;
   color: #8a2be2;
+  cursor: pointer;
 }
 
-nav ul #user #hide {
+nav ul #user-class #hide {
   background-color: cornsilk;
   border-radius: 0.5rem;
   position: relative;
   top: 10%;
   left: -20%;
   height: auto;
-  width: 120%;
+  width: 13rem;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
+  z-index: 1;
 }
 
-nav ul #user #hide .hidden {
+nav ul #user-class #hide .hidden {
+  position: relative;
   display: none;
   height: auto;
-  padding: 5%;
+  padding: 10%;
 }
 
-nav ul #user #hide .hidden a {
+nav ul #user-class #hide .hidden a {
+  position: relative;
   color: black;
 }
 

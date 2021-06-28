@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="/css/home.css">
 <link rel="stylesheet" href="/css/chat_box.css">
-
 <section id="feed-posts">
     
         <div id="home-posts-container">
@@ -13,16 +12,34 @@
         </div>
         </div>
 </section>
-<%- include('_chat_box') -%>
-<section id="all-users">
-    <h4>Friends</h4>
+
+<section id="aside">
+    <% if(locals.user){%>
+    <div class="aside-container">
+        <div><img src="<%= user.avatar %>" alt="<%= user.name%>"></div>
+        <div class="user-name">
+            <a href="/user/profile/<%=user.id %>"> <%= user.name %></a>
+        </div>
+    
+    </div>
+    <% }%>
+    <div>
+        <h4>Friends</h4>
     <% for(u of all_users){ %>
         <p>
             <a href="/user/profile/<%=u.id%>"><%=u.name%></a>
         </p>
         <%}%>
+    </div>
+    <%- include('_chat_box') -%>
 </section>
-<script src="/js/home_post.js" ></script>
+<script src="/js/toggle_likes.js"></script>
+<script>
+    $('.toggle-like-button').each(function(){
+        let self=this;
+        let toggleLike=new ToggleLike(self);
+    });
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.5/socket.io.js" integrity="sha512-2rUSTSAeOO02jF6eBqENNqPs1EohenJ5j+1dgDPdXSLz9nOlrr8DJk4zW/lDy8rjhGCSonW3Gx812XJQIKZKJQ==" crossorigin="anonymous"></script>
 <script src="/js/chat_engine.js"></script>
 <% if (locals.user){ %>

@@ -16,7 +16,7 @@ nav{
         position: relative;
         right:10%;
         justify-content: space-between;
-        li{
+        .list{
             display: block;
             position: relative;
             padding-right: 20px;
@@ -27,10 +27,11 @@ nav{
             }
             
         }
-        #user{
+        #user-class{
+            position: relative;
             font-size: 1.5rem;
                 color: #8a2be2;
-                
+                cursor: pointer;
                 #hide{
                     background-color: cornsilk;
                     border-radius: 0.5rem;
@@ -38,15 +39,18 @@ nav{
                     top:10%;
                     left:-20%;
                     height: auto;
-                    width: 120%;
+                    width: 13rem;
                     display: flex;
+                    flex-wrap: wrap;
                     flex-direction: column;
+                    z-index: 1;
             .hidden{
-                
+                position: relative;
                 display: none;
                 height: auto;
-                padding: 5%;
+                padding: 10%;
                 a{
+                    position: relative;
                     color: black;
                 }
             }

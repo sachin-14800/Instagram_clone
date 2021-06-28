@@ -10,17 +10,17 @@
         </div>
         <ul>
             <% if(locals.user) {%>
-                <li id="user"><%= user.name %>&nbsp;<i class="fas fa-caret-down"></i>
+                <li id="user-class" class="list"><%= user.name %>&nbsp;<i class="fas fa-caret-down"></i>
                     <div id="hide">
-                        <div class="hidden"><a href="/user/profile/<%=user.id %>"><i class="fas fa-user-circle"></i>&nbsp;Profile </a></div>
-                        <div class="hidden"><a href="/user/new-post"><i class="fas fa-th"></i>&nbsp;Create post </a></div>
+                        <div class="hidden"><a href="/user/profile/<%=user.id %>"><i class="fas fa-user-circle"></i>&nbsp;Profile</a></div>
+                        <div class="hidden"><a href="/user/new-post"><i class="fas fa-th"></i>&nbsp;Create&nbsp;Post</a></div>
                         <div class="hidden"><a href='/user/sign-out'><i class="fas fa-sign-out-alt"></i>&nbsp;SignOut</a></div>
                     </div>
                 </li>
                 
                 <% }else{ %>
-                    <li><a href="/user/sign-in">SignIn</a></li>
-                    <li><a href="/user/sign-up">Sign Up</a></li>
+                    <li class="list"><a href="/user/sign-in">SignIn</a></li>
+                    <li class="list"><a href="/user/sign-up">Sign Up</a></li>
                     <% } %>
         </ul>
     </nav>

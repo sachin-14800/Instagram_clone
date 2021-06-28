@@ -13,7 +13,6 @@ module.exports.create=async function(req,res){
         post.save();
          comment=await comment.populate('user','name email').execPopulate();
         
-        // commentsMailer.newComment(comment);
         //adding worker 
         let job=queue.create('emails',comment).save(function(err){
             if(err)
@@ -44,7 +43,7 @@ module.exports.destroy=async function(req,res)
      {  
      comment.remove();
      let post= await Post.findByIdAndUpdate(postId,{$pull:{comments:req.params.id}});
-    //  await Like.deleteMany({Likeable:comment._id,onModel:'Comment'});
+     await Like.deleteMany({Likeable:comment._id,onModel:'Comment'});
      req.flash('success','Comment deleted');
      return res.redirect('back');
      }
