@@ -8,6 +8,18 @@ const queue = require('../config/kue');
 const forgetPasswordMailer=require('../mailers/forget_password_mailer');
 const passowordEmailWorker=require('../workers/password_email_worker');
 const Follow = require("../models/follow");
+module.exports.editProfile=function(req,res)
+{
+    if(req.isAuthenticated())
+    {
+        return res.render('edit_profile',{
+            title:"Edit Post"
+        });
+    }
+    return res.render('user_sign_up',{
+        title:"Instagram | Sign Up"
+    });
+}
 module.exports.newPost=function(req,res){
     if(req.isAuthenticated())
     {
@@ -69,18 +81,19 @@ module.exports.update=async function(req,res)
                     console.log('Multer Error',err);
                 }
                 user.name=req.body.name;
-                user.email=req.body.email;
+                user.bio=req.body.bio;
                 if(req.file)
                 {
                     if(user.avatar)
                     {
+                        if(user.avatar!="https://www.computerhope.com/jargon/g/guest-user.jpg")
                         fs.unlinkSync(path.join(__dirname,'..',user.avatar));
                     }
                     //this is saving the path
                     user.avatar=User.avatarPath+'/'+req.user.name+'/'+req.file.filename;
                 }
                 user.save();
-                return res.redirect('back');
+                return res.redirect('/user/profile/'+req.params.id);
                 });
             }catch(err)
             {

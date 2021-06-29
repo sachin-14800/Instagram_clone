@@ -11,7 +11,6 @@ module.exports.create=async function(req,res){
                 console.log('Multer Error',err);
             }
             let paths=path.join(Post.postPath,'/',req.user.name);
-            console.log(paths);
             if(req.file)
             {
                 paths=path.join(paths,'/',req.file.filename);

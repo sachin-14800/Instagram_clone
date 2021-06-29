@@ -69,13 +69,18 @@ section{
             position: relative;
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: flex-start;
+            align-content: flex-start;
             list-style: none;
             li{
                 position: relative;
                 width:31%;
                 .post-image{
+                    position: relative;
+                    margin-right: 3%;
+                    margin-bottom: 3%;
                     img{
+                        position: relative;
                         width:100%;
                         height: 18rem;
                     }

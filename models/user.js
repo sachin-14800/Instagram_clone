@@ -19,7 +19,8 @@ const userSchema=new mongoose.Schema({
         required:true
     },
     avatar:{
-        type:String
+        type:String,
+        default:"https://www.computerhope.com/jargon/g/guest-user.jpg"
     },
     following:[
         {
@@ -32,7 +33,10 @@ const userSchema=new mongoose.Schema({
             type:mongoose.Schema.Types.ObjectId,
             ref:'follow'
         }
-    ]
+    ],
+    bio:{
+        type:String
+    }
 },{
     timestamps:true
 });

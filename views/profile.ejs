@@ -10,7 +10,7 @@
         <div class="detail">
             <div class="name"><%= profile_user.name %></div>
             <%if(profile_user.id==user.id){%>
-        <div class="edit"> <a href="">Edit profile</a></div>
+        <div class="edit"> <a href="/user/edit-profile">Edit profile</a></div>
         <%}else{%>
             <button >
                 <% if(follow){%>
