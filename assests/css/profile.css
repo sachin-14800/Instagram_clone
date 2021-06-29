@@ -45,8 +45,17 @@ section .user-details .details .detail .name {
 }
 
 section .user-details .details .detail .edit {
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-decoration: none;
+  border: 1px solid lightgray;
+  padding: 0.5rem;
+  border-radius: 10%;
+  font-weight: bold;
+}
+
+section .user-details .details .detail .edit a {
+  text-decoration: none;
+  color: black;
 }
 
 section .user-details .details .detail .number {

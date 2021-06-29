@@ -33,8 +33,16 @@ section{
                     width: 60%;
                 }
                 .edit{
-                    font-size: 1.5rem;
+                    font-size: 1rem;
                     text-decoration: none;
+                    border:1px solid lightgray;
+                    padding:0.5rem;
+                    border-radius: 10%;
+                    font-weight: bold;
+                    a{
+                        text-decoration: none;
+                        color:black;
+                    }
                 }
                 .number{
                     font-size: 1.3rem;

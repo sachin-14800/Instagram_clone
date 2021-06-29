@@ -14,17 +14,22 @@
   box-shadow: 2px 5px 5px 2px gray;
 }
 
-.editprofile .home a {
-  text-decoration: none;
-  color: black;
-  font-size: 3rem;
-  position: relative;
-  left: 85%;
-}
-
 .editprofile .update-user-form {
   position: relative;
   left: 10%;
+}
+
+.editprofile .update-user-form .home {
+  display: inline;
+}
+
+.editprofile .update-user-form .home a {
+  text-decoration: none;
+  color: black;
+  font-size: 3rem;
+  font-weight: bolder;
+  position: relative;
+  left: 80%;
 }
 
 .editprofile .update-user-form input[type=text] {
@@ -35,15 +40,6 @@
   height: 3.5rem;
   width: 55%;
   background-color: cornsilk;
-}
-
-.editprofile .update-user-form input[type=submit] {
-  position: relative;
-  font-size: 1.5rem;
-  width: 20%;
-  left: 26%;
-  background-color: cornsilk;
-  border-radius: 5rem;
 }
 
 .editprofile .update-user-form input[type=file] {
@@ -67,4 +63,17 @@
 .editprofile .update-user-form .bio {
   display: inline;
   margin-right: 3rem;
+}
+
+.editprofile .update-user-form button {
+  display: inline;
+  width: 10%;
+  position: relative;
+  display: block;
+  left: 70%;
+  margin-top: -7%;
+  font-size: 3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
 }

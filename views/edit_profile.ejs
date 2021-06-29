@@ -1,15 +1,17 @@
 <link rel="stylesheet" href="/css/edit_profile.css">
 
 <div class="editprofile">
-    <div class="home">
-        <a href="/user/profile/<%=user._id%>">X</a>
-    </div>
     <form action="/user/update/<%=user._id%>" method="POST" class="update-user-form" enctype="multipart/form-data">
+        <div class="home">
+            <a href="/user/profile/<%=user._id%>">X</a>
+        </div>
+        <button type="submit">
+            <i class="fas fa-check"></i>
+        </button>
         <input type="file" name="avatar" id="new_post_preview">
         <div class="new-post"><img id="blah" src="<%=user.avatar%>" alt="<%=user.name%>" /></div>
         <div>Username <input type="text" name="name" value="<%=user.name%>"></div>
        <div><div class="bio"> Bio</div><input type="text" name="bio" id="bio"value="<%=user.bio%>"></div>
-        <input type="submit" value="Update">
     </form>
 </div>
 <script src="/js/new_post_preview.js"></script>

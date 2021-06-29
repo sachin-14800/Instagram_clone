@@ -26,8 +26,11 @@
             <div class="follower" follows="<%=profile_user.followers.length%>"><b><%=profile_user.followers.length%></b> Followers</div>
             <div class="number"><b><%=profile_user.following.length%></b> Following</div>
         </div>
-        <div class="detail">
+        <!-- <div class="detail">
             <div class="number">Mail:<%= profile_user.email %></div>
+        </div> -->
+        <div class="detail">
+            <div class="number"><%= profile_user.bio %></div>
         </div>
     </div>
     </div>

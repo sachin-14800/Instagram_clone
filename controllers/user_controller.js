@@ -93,6 +93,7 @@ module.exports.update=async function(req,res)
                     user.avatar=User.avatarPath+'/'+req.user.name+'/'+req.file.filename;
                 }
                 user.save();
+                req.flash('success',"Successfully updated");
                 return res.redirect('/user/profile/'+req.params.id);
                 });
             }catch(err)
