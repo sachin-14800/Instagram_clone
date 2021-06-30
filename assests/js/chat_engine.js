@@ -25,7 +25,7 @@ class ChatEngine{
     connectionHandler(){
         let self=this;
         this.socket.on('connect', function(){
-            console.log('connection established using sockets...!');
+            // console.log('connection established using sockets...!');
             
             self.socket.emit('join_room',{
                 userid:self.userid,
@@ -67,6 +67,8 @@ class ChatEngine{
             }));
             newMessage.addClass(messageType);
             $('#chat-messages-list').append(newMessage);
+            $('#chat-message-input').val('');
+            $('#chat-messages-list').scrollBy({ top: 52, left: 0, behavior: 'smooth' });
         });   
     }
 }

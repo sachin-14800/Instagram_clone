@@ -16,7 +16,7 @@ module.exports.chatSockets = function(socketServer){
         });
 
         socket.on('join_room',function(data){
-            console.log('Joining request recieved',data);
+            // console.log('Joining request recieved',data);
             //if exists then enter the user else create the chatroom
             socket.join(data.chatroom);
             //emit in a specific chatroom
