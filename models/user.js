@@ -25,13 +25,13 @@ const userSchema=new mongoose.Schema({
     following:[
         {
             type:mongoose.Schema.Types.ObjectId,
-            ref:'follow'
+            ref:'Follow'
         }
     ],
     followers:[
         {
             type:mongoose.Schema.Types.ObjectId,
-            ref:'follow'
+            ref:'Follow'
         }
     ],
     bio:{

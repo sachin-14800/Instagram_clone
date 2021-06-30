@@ -1,0 +1,24 @@
+Following
+<ul>
+    <%for(chat of chats){%>
+        <li class="user">
+            <%=chat.to_user.name%>
+            <a href="/chat/?from=<%=user._id%>&to=<%=chat.to_user.id%>">Chat</a>
+            <!-- <div><img src="<%=chat.to_user.avatar%>"></div> -->
+            <div class="user-email"><%=chat.to_user.email%></div>
+        </li>
+    <%}%>
+    </ul>
+   Followers
+   <ul>
+    <%for(chat of requests){%>
+        <li class="user">
+            <%=chat.from_user.name%>
+            <a href="/chat/?from=<%=user._id%>&to=<%=chat.from_user.id%>">Chat</a>
+            <!-- <div><img src="<%=chat.to_user.avatar%>"></div> -->
+            <div class="user-email"><%=chat.from_user.email%></div>
+        </li>
+    <%}%>
+</ul>
+
+    

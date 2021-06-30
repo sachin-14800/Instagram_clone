@@ -17,7 +17,7 @@ module.exports.home=async function(req,res)
         }
     }).populate('like');
     let users= await User.find({});
-     
+    
     return res.render('home',{
         title:"Home page",
         post:posts,

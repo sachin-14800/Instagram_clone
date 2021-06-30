@@ -4,22 +4,22 @@ const User=require('../models/user');
 module.exports.toggleFollow=async (req,res)=>{
     try{
         let deleted=false;
-    let followable=await Friend.findOne({from_user:req.query.fromuser,to_user:req.query.touser});
-    let Fromuser=await User.findById(req.query.fromuser);
+        let Fromuser=await User.findById(req.query.fromuser);
     let Touser=await User.findById(req.query.touser);
+    let followable=await Friend.findOne({from_user:Fromuser,to_user:Touser});
     if(followable)
     {
-        Fromuser.following.pull(followable._id);
-        Touser.followers.pull(followable._id);
+        Fromuser.following.pull(followable);
+        Touser.followers.pull(followable);
         Fromuser.save();
         Touser.save();
         followable.remove();
         deleted=true;
     }
     else{
-        let friend=await Friend.create({from_user:req.query.fromuser,to_user:req.query.touser});
-        Fromuser.following.push(friend._id);
-        Touser.followers.push(friend._id);
+        let friend=await Friend.create({from_user:Fromuser,to_user:Touser});
+        Fromuser.following.push(friend);
+        Touser.followers.push(friend);
         Fromuser.save();
         Touser.save();
     }

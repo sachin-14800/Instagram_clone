@@ -26,7 +26,7 @@ main {
 
 #feed-posts #home-posts-container #post-list-container ul li div {
   position: relative;
-  background-color: wheat;
+  background-color: #fdf9f3;
   display: flex;
   width: auto;
   border-radius: 2rem;
