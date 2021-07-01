@@ -15,7 +15,7 @@
         <% if(locals.user){%>
             <a class="toggle-like-button" data-likes="<%= p.likes.length%>"href="/like/toggle/?id=<%=p._id%>&type=Post"> <i class="far fa-heart red"></i>&nbsp;<%= p.likes.length%>&nbsp;Likes</a>
             <%}else{%>
-                <%= p.likes.length%>Likes
+                <div class="toggle-like-button"><i class="far fa-heart red"></i>&nbsp;<%= p.likes.length%>&nbsp;Likes</div>
             <%}%>
     <div class="post-content"><div class="user-name"><a href="/user/profile/<%=p.user.id%>"><%= p.user.name %></div></a>&emsp;<div><%= p.content %></div></div>
     <%}%>
