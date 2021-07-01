@@ -3,10 +3,11 @@ const JWTStrategy=require('passport-jwt').Strategy;
 //extract JWT from header
 const ExtractJWT=require('passport-jwt').ExtractJwt;
 const User=require('../models/user');
+const env=require('./environment');
 //header has list of keys has key authorisation and that also has list of keys and key named bearer having the JWT token
 let opts={
     jwtFromRequest:ExtractJWT.fromAuthHeaderAsBearerToken(),
-    secretOrKey:'Instagram'
+    secretOrKey:env.jwt_secret
 }
 
 passport.use(new JWTStrategy(opts,function(JwtPayLoad,done){
