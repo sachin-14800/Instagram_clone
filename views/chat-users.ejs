@@ -1,24 +1,33 @@
-Following
+<link rel="stylesheet" href="/css/chat_users.css">
+<div class="body">
+<div class="following">
+    <h2><b>Following</b></h2>
 <ul>
+    <div class="list">
     <%for(chat of chats){%>
         <li class="user">
-            <%=chat.to_user.name%>
-            <a href="/chat/?from=<%=user._id%>&to=<%=chat.to_user.id%>">Chat</a>
-            <!-- <div><img src="<%=chat.to_user.avatar%>"></div> -->
-            <div class="user-email"><%=chat.to_user.email%></div>
+            <div class="user-image"><img src="<%=chat.to_user.avatar%>" alt="<%=chat.to_user.name%>"></div>
+            <div class="user-name"><a href="/user/prfoile/<%=chat.to_user.id%>"><%=chat.to_user.name%></a></div>
+            <div class="chat-button"><a href="/chat/?from=<%=user._id%>&to=<%=chat.to_user.id%>">Chat</a></div>
         </li>
     <%}%>
-    </ul>
-   Followers
+    </div>
+</ul>
+</div>
+<div class="followers">
+   <h2><b>Followers</b></h2>
    <ul>
+       <div class="list">
     <%for(chat of requests){%>
         <li class="user">
-            <%=chat.from_user.name%>
-            <a href="/chat/?from=<%=user._id%>&to=<%=chat.from_user.id%>">Chat</a>
-            <!-- <div><img src="<%=chat.to_user.avatar%>"></div> -->
-            <div class="user-email"><%=chat.from_user.email%></div>
+            <div class="user-image"><img src="<%=chat.from_user.avatar%>" alt="<%=chat.from_user.name%>"></div>
+            <div class="user-name"><a href="/user/profile/<%= chat.from_user.id%>"><%=chat.from_user.name%></a></div>
+            <div class="chat-button"><a href="/chat/?from=<%=user._id%>&to=<%=chat.from_user.id%>">Chat</a></div>
         </li>
     <%}%>
-</ul>
+        </div>
+    </ul>
+</div>
+</div>
 
     

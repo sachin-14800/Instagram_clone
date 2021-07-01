@@ -4,7 +4,9 @@
 	<div id="user-chat-box">
 		<div class="user-image"><img src="<%=to_user.avatar%>" alt="">
 			<div class="user-name">
-				<%= to_user.name%>
+				<a href="/user/profile/<%=to_user.id%>">
+					<%= to_user.name%>
+				</a>
 			</div>
 		</div>
 		<hr>
@@ -16,7 +18,7 @@
 						<span><%=message.content%></span>
 					</li>
 				<%}else{%>
-					<li class="self-message">	
+					<li class="self-message">
 						<span><%= message.content%></span>
 					</li>
 				<%}%>
