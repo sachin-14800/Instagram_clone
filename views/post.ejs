@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="/css/post.css">
+<div class="post"> 
+<div class="post-image"><img src="<%= post.path %>" alt="<%= post.user.name %>" width="100"></div>
+<div class="all-info">
+<div class="post-heading">
+    <div class="user"><img src="<%= post.user.avatar %>" alt="<%= post.user.name %>" width="100"></div>
+        <div class='user-name'><a href="/user/profile/<%=post.user.id%>"><%= post.user.name %></a></div>
+    
+    <% if (locals.user && locals.user.id == post.user.id){ %>
+        <div class="delete-button">
+            <a  href="/post/destroy/<%= post.id %>"><i class="fas fa-trash"></i></a>
+        </div>
+    <% } %>
+</div>
+    
+
+
+<div class="post-comments">
+    <div class="post-comments-list">
+        <ul id="post-comments-<%= post._id %>">
+            <div class="post-content"><img src="<%=post.user.avatar%>" alt="<%=post.user.name%>">&emsp;
+                <a class="name" href="/user/profile/<%=post.user.id%>"><%= post.user.name %></a>&emsp;
+                <div class="inner-content"><%= post.content %></div>
+            </div>
+            <% for (comment of post.comments){%>
+
+                <%- include('_comment') -%>
+                
+            
+            <%} %>
+        </ul>
+    </div>
+    <% if(locals.user){%>
+        <form id="post-<%= post._id %>-comments-form" action="/comment/create" method="POST">
+            <input type="text" name="content" placeholder="Add a comment">
+            <!-- important to recognise on which post the comment is added -->
+            <input type="hidden" name="post" value="<%= post._id%>">
+            <input type="submit" value="Post">
+        </form>
+        <%}%>
+        
+        
+        
+    
+</div>
+<% if(locals.user){%>
+    <a class="toggle-like-button" data-likes="<%= post.likes.length%>"href="/like/toggle/?id=<%=post._id%>&type=Post"> <i class="far fa-heart red"></i>&nbsp;<%= post.likes.length%>&nbsp;Likes</a>
+    <%}else{%>
+        <%= post.likes.length%>Likes
+    <%}%>
+
+</div>
+</div>

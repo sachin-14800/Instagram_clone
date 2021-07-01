@@ -6,24 +6,25 @@ const commentEmailWorker=require('../workers/comment_email_worker');
 const queue = require('../config/kue');
 module.exports.create=async function(req,res){
     try{
+        
         let post = await Post.findById(req.body.post);
         if(post){
-    let comment=await Comment.create({content:req.body.content,post:req.body.post,user:req.user._id});
+    let comment=await Comment.create({content:req.body.content,post:req.body.post,user:req.user});
        post.comments.push(comment);
-        post.save();
-         comment=await comment.populate('user','name email').execPopulate();
-        
-        //adding worker 
+       
+         comment=await comment.populate('user').execPopulate();
+         post.save();
+        //  console.log(comment);
         let job=queue.create('emails',comment).save(function(err){
             if(err)
             {
                 console.log('Error in creating queue');
                 return ;
             }
-            console.log(job.id);
+            // console.log(job.id);
         });
         req.flash('success','Comment added');
-        res.redirect('/');
+        res.redirect('back');
         }
     }
     catch(err)

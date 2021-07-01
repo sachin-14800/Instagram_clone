@@ -3,6 +3,25 @@ const Comment=require('../models/comment');
 const Like=require('../models/like');
 const path=require('path');
 const fs=require('fs');
+const { post } = require('../routes/post');
+module.exports.display=async function(req,res){
+    let post=await Post.findById(req.params.id)
+    .populate('user')
+    .populate({
+        path:'comments',
+        populate:[{
+            path:'user',
+            model:'User'
+        },{
+            path:'likes',
+            model:'Like'
+        }]
+    }).populate('likes');
+    res.render('post',{
+        title:'post',
+        post:post
+    });
+}
 module.exports.create=async function(req,res){
     try{
         Post.uploadedPost(req,res,function(err){

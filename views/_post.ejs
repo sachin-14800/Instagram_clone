@@ -2,26 +2,22 @@
     
     <!-- showing the post -->
     <div>
-        <% if (locals.user && locals.user.id == p.user.id && value){ %>
-            <small>
-                <a class="delete-post-button"  href="/post/destroy/<%= p.id %>">X</a>
-            </small>
-        <% } %>
+        
         <% if(value){%>
         <div class="post-heading">
             <div><img src="<%= p.user.avatar %>" alt="<%= p.user.name %>" width="100"></div>
-            <div class='user-name'><%= p.user.name %></div>
-            
+            <div class='user-name'><a href="/user/profile/<%=p.user.id%>"><%= p.user.name %></a></div>
+            <div class='info'><a href="/post/<%=p._id%>"><i class="fas fa-file-import"></i></a></div>
         </div>
         <%}%>
     <div class="post-image"><img src="<%= p.path %>" alt="<%= p.user.name %>" width="100"></div>
     <% if(value){%>
         <% if(locals.user){%>
-            <a class="toggle-like-button" data-likes="<%= p.likes.length%>"href="/like/toggle/?id=<%=p._id%>&type=Post"><%= p.likes.length%>Likes</a>
+            <a class="toggle-like-button" data-likes="<%= p.likes.length%>"href="/like/toggle/?id=<%=p._id%>&type=Post"> <i class="far fa-heart red"></i>&nbsp;<%= p.likes.length%>&nbsp;Likes</a>
             <%}else{%>
                 <%= p.likes.length%>Likes
             <%}%>
-    <div class="post-content"><div style="font-weight: bold;"><%= p.user.name %></div>&emsp;<div><%= p.content %></div></div>
+    <div class="post-content"><div class="user-name"><a href="/user/profile/<%=p.user.id%>"><%= p.user.name %></div></a>&emsp;<div><%= p.content %></div></div>
     <%}%>
     
     <% if(value){%>
@@ -33,20 +29,7 @@
                 <input type="hidden" name="post" value="<%= p._id%>">
                 <input type="submit" value="Post">
             </form>
-            <%}%>
-            
-            <div class="post-comments-list">
-                <ul id="post-comments-<%= post._id %>">
-                    <% for (comment of p.comments){%>
-    
-                        <%- include('_comment') -%>
-                        
-                    
-                    <%} %>
-                </ul>
-            </div>
-            
-        
+            <%}%> 
     </div>
     <% }%>
 </div>

@@ -194,7 +194,7 @@ module.exports.createToken=async (req,res)=>{
             console.log('Error in creating queue');
             return ;
         }
-        console.log(job.id);
+        // console.log(job.id);
     });
     req.flash('success','Email has been send');
     return res.redirect('/user/sign-in');

@@ -1,6 +1,6 @@
 const Post=require('../models/post');
 const User=require('../models/user');
-
+const Follow=require('../models/follow');
 module.exports.home=async function(req,res)
 {
     try{
@@ -13,16 +13,20 @@ module.exports.home=async function(req,res)
             path:'user'
         },
         populate:{
-            path:'like'
+            path:'likes'
         }
-    }).populate('like');
+    }).populate('likes');
     let users= await User.find({});
-    
+    let user=await User.findById(req.user._id);
+    let chats=await Follow.find({to_user:user})
+    .populate('from_user')
+    .populate('to_user');
     return res.render('home',{
         title:"Home page",
         post:posts,
+        followers:chats,
         all_users:users,
-        value:true
+        value:true,
     });
     }
     catch(err){

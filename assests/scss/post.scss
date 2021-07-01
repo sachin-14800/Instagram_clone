@@ -1,0 +1,132 @@
+.post{
+    position: relative;
+    background-color: rgb(253, 249, 243);
+    display: flex;
+    width: auto;
+    width: 80%;
+    left:10%;
+    flex-direction: row;
+    .all-info{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+    .post-heading{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding-left:2.5rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        border: 2px solid black;
+        .user-name{
+            padding-top: 1rem;
+            padding-left:2rem;
+            font-weight: bold;
+            
+            a{
+                text-decoration: none;
+                color: blueviolet;
+            }
+            a:hover{
+                border-bottom: 1px solid black;
+            }
+        }
+        img{
+            position: relative;
+            height:3.5rem;
+            width: 3.5rem;
+            border-radius: 50%;
+        }
+        .delete-button{
+            position: relative;
+            left:50%;
+            padding-top: 1rem;
+            width: fit-content;
+            a{
+                color:black;
+                font-size: 1.5rem;
+                color: blueviolet;
+            }
+        }
+    }
+    
+    .post-image{
+        img{
+            height: 40rem;
+            width: 40rem;
+            align-self: center;
+        }
+    }
+    
+        .toggle-like-button{
+            text-decoration: none;
+            display: inline;
+            padding-right: 1rem;
+            color:black;
+            padding-left: 2rem;
+        }
+        .red{
+            color:red;
+        }
+    .post-content{
+        padding-bottom: 1rem;
+        display: flex;
+        flex-direction: row;
+        
+        .inner-content{
+            overflow:auto;
+            padding-top:0.8rem;
+        }
+        img{
+            height:3rem;
+            width: 3rem;
+            border-radius: 50%;
+        }
+        .name{
+            text-decoration: none;
+            padding-top:0.8rem;
+            position: relative;
+            top:-40%;
+            color: blueviolet;
+        }
+        .name:hover{
+            border-bottom: 1px solid black;
+        }
+    }
+    .post-comments{
+        display: block;
+        padding-left:2.5rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        .post-comments-list{
+            height:30rem;
+            overflow-y:scroll;
+        }
+        .post-comments-list::-webkit-scrollbar{
+            display: none;
+        }
+        form{
+            height: 2.5rem;
+            width: 100%;
+            position: relative;
+            display: flex;
+            input{
+                border:none;
+                position: relative;
+                height: auto;
+                width: fit-content;
+            }
+            input[type=text]{
+                width: 85%;
+            }
+            input[type=submit]
+            {
+                width: 10%;
+                color:blueviolet;
+                font-weight: bold;
+                background-color: white;
+            }
+        }
+    }
+}

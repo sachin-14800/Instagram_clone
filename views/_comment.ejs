@@ -1,23 +1,29 @@
+<link rel="stylesheet" href="/css/comment.css">
 <li id="comment-<%= comment._id %>">
-    <p>
-        <%if(locals.user &&(locals.user.id==p.user.id || locals.user.id==comment.user.id)){%>
+        <div>
+            <img src="<%=comment.user.avatar%>" alt="<%=comment.user.name%>">&emsp;
+            <a class="name" href="/user/profile/<%=comment.user.id%>"><%= comment.user.name %></a>
+        </div>
+        <div class="comment-content"><%= comment.content %></div>
         
-        <small>
-            <a class="delete-comment-button" href="/comment/destroy/<%= comment.id %>">X</a>
-        </small>
-        <% } %>
-        <%= comment.content %>
-        <br>
-        <small>
-            <%= comment.user.name %>
-        </small>
-        <small>
+        <div class="comment-like">
             <% if(locals.user){%>
-                <a class="toggle-like-button" data-likes="<%= comment.likes.length%>"href="/like/toggle/?id=<%=comment._id%>&type=Comment"><%= comment.likes.length%>Likes</a>
+                <a class="toggle-like-button" data-likes="<%= comment.likes.length%>"href="/like/toggle/?id=<%=comment._id%>&type=Comment"><i class="far fa-heart red"></i>&nbsp;<%= comment.likes.length%>&nbsp;Likes</a>
                 <%}else{%>
                     <%= comment.likes.length%>Likes
                 <%}%>
-        </small>
-    </p>    
+            </div>
+        <%if(locals.user &&(locals.user.id==post.user.id || locals.user.id==comment.user.id)){%>
+            <div class="comment-like">
+                <a class="delete-comment-button" href="/comment/destroy/<%= comment.id %>"><i class="fas fa-trash"></i></a>
+            </div>
+            <% } %>   
 
 </li>
+<script src="/js/toggle_likes.js"></script>
+<script>
+    $('.toggle-like-button').each(function(){
+        let self=this;
+        let toggleLike=new ToggleLike(self);
+    });
+</script>

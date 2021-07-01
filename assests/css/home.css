@@ -21,6 +21,7 @@ main {
 }
 
 #feed-posts #home-posts-container #post-list-container ul li {
+  position: relative;
   list-style: none;
 }
 
@@ -42,11 +43,31 @@ main {
   padding-bottom: 0.5rem;
 }
 
+#feed-posts #home-posts-container #post-list-container ul li div .post-heading .info {
+  position: relative;
+  left: 60%;
+  padding-top: 1rem;
+  font-size: 1.5rem;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-heading .info a {
+  color: blueviolet;
+}
+
 #feed-posts #home-posts-container #post-list-container ul li div .post-heading .user-name {
   padding-top: 1rem;
   padding-left: 1rem;
   font-weight: bold;
   color: blueviolet;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-heading .user-name a {
+  text-decoration: none;
+  color: blueviolet;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-heading .user-name a:hover {
+  border-bottom: 1px solid black;
 }
 
 #feed-posts #home-posts-container #post-list-container ul li div .post-heading img {
@@ -62,12 +83,38 @@ main {
   align-self: center;
 }
 
+#feed-posts #home-posts-container #post-list-container ul li div .toggle-like-button {
+  text-decoration: none;
+  display: inline;
+  padding-right: 1rem;
+  color: black;
+  padding-left: 2rem;
+  padding-top: 1rem;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .red {
+  color: red;
+}
+
 #feed-posts #home-posts-container #post-list-container ul li div .post-content {
   padding-left: 2.5rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   display: flex;
   flex-direction: row;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-content .user-name {
+  font-weight: bold;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-content .user-name a {
+  text-decoration: none;
+  color: blueviolet;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-content .user-name a:hover {
+  border-bottom: 1px solid black;
 }
 
 #feed-posts #home-posts-container #post-list-container ul li div .post-comments {
@@ -104,7 +151,13 @@ main {
 #aside {
   width: 30%;
   position: relative;
+  height: 100%;
   left: -3%;
+}
+
+#aside .inside-aside {
+  position: relative;
+  height: 70%;
 }
 
 #aside .aside-container {
@@ -130,4 +183,10 @@ main {
 
 #aside .aside-container .user-name a {
   text-decoration: none;
+}
+
+#aside .users .follower a {
+  text-decoration: none;
+  color: blueviolet;
+  font-size: 1.2rem;
 }

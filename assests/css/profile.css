@@ -38,6 +38,19 @@ section .user-details .details .detail {
   justify-content: space-between;
 }
 
+section .user-details .details .detail button {
+  background-color: #f8e7e7;
+  border: 1px solid palevioletred;
+  box-shadow: 1px 2px 2px 1px plum;
+  border-radius: 10%;
+}
+
+section .user-details .details .detail button .toggle-follow-button {
+  text-decoration: none;
+  color: blueviolet;
+  font-weight: bold;
+}
+
 section .user-details .details .detail .name {
   font-size: 2rem;
   position: relative;
@@ -64,19 +77,6 @@ section .user-details .details .detail .number {
 
 section .user-details .details .detail .follower {
   font-size: 1.3rem;
-}
-
-section .functions {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  font-size: 1.2rem;
-}
-
-section .functions div a {
-  text-decoration: none;
-  color: #979696;
 }
 
 section #post-list-container {

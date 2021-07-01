@@ -15,7 +15,9 @@ main{
         ul{
             display: block;
             li{
+                position: relative;
                 list-style: none;
+                
                 div{
                     position: relative;
                     background-color: rgb(253, 249, 243);
@@ -30,11 +32,27 @@ main{
                         padding-left:2.5rem;
                         padding-top: 0.5rem;
                         padding-bottom: 0.5rem;
+                        .info{
+                            position: relative;
+                            left:60%;
+                            padding-top: 1rem;
+                            font-size: 1.5rem;
+                            a{
+                                color: blueviolet;
+                            }
+                        }
                         .user-name{
                             padding-top: 1rem;
                             padding-left: 1rem;
                             font-weight: bold;
                             color: blueviolet;
+                            a{
+                                text-decoration: none;
+                                color:blueviolet;
+                            }
+                            a:hover{
+                                border-bottom: 1px solid black;
+                            }
                         }
                         img{
                             position: relative;
@@ -43,6 +61,7 @@ main{
                             border-radius: 50%;
                         }
                     }
+                    
                     .post-image{
                         img{
                             height: 40rem;
@@ -50,12 +69,34 @@ main{
                             align-self: center;
                         }
                     }
+                    
+                        .toggle-like-button{
+                            text-decoration: none;
+                            display: inline;
+                            padding-right: 1rem;
+                            color:black;
+                            padding-left: 2rem;
+                            padding-top: 1rem;
+                        }
+                        .red{
+                            color:red;
+                        }
                     .post-content{
                         padding-left:2.5rem;
                         padding-top: 0.5rem;
                         padding-bottom: 0.5rem;
                         display: flex;
                         flex-direction: row;
+                        .user-name{
+                            font-weight: bold;
+                            a{
+                                text-decoration: none;
+                                color: blueviolet;
+                            }
+                            a:hover{
+                                border-bottom: 1px solid black;
+                            }
+                        }
                     }
                     .post-comments{
                         padding-left:2.5rem;
@@ -93,7 +134,13 @@ main{
 #aside{
     width:30%;
     position: relative;
+    height: 100%;
     left:-3%;
+    
+    .inside-aside{
+        position: relative;
+        height:70%;
+    }
     .aside-container
     {   
         
@@ -114,6 +161,15 @@ main{
             font-family: sans-serif;
             a{
                 text-decoration: none;
+            }
+        }
+    }
+    .users{
+        .follower{
+            a{
+                text-decoration: none;
+                color:blueviolet;
+                font-size: 1.2rem;
             }
         }
     }

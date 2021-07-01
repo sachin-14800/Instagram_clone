@@ -13,22 +13,33 @@
 </section>
 
 <section id="aside">
-    <% if(locals.user){%>
-    <div class="aside-container">
-        <div><img src="<%= user.avatar %>" alt="<%= user.name%>"></div>
-        <div class="user-name">
-            <a href="/user/profile/<%=user.id %>"> <%= user.name %></a>
-        </div>
-    
-    </div>
-    <% }%>
-    <div>
-        <h4>Friends</h4>
-    <% for(u of all_users){ %>
-        <p>
-            <a href="/user/profile/<%=u.id%>"><%=u.name%></a>
-        </p>
-        <%}%>
+    <div class="inside-aside">
+        <% if(locals.user){%>
+            <div class="aside-container">
+                <div><img src="<%= user.avatar %>" alt="<%= user.name%>"></div>
+                <div class="user-name">
+                    <a href="/user/profile/<%=user.id %>"> <%= user.name %></a>
+                </div>
+            
+            </div>
+            <% }%>
+            <div class="users">
+                <h2>Followers</h2>
+            <% for(u of followers){ %>
+                <p class="follower">
+                    <a href="/user/profile/<%=u.from_user._id%>"><%=u.from_user.name%></a>
+                </p>
+                <%}%>
+            </div>
+            
+            <div class="users"> 
+                <h2>All users</h2>
+                <% for(u of all_users){ %>
+                    <p class="follower">
+                        <a href="/user/profile/<%=u._id%>"><%=u.name%></a>
+                    </p>
+                    <%}%>
+            </div>
     </div>
 </section>
 <script src="/js/toggle_likes.js"></script>
@@ -38,4 +49,10 @@
         let toggleLike=new ToggleLike(self);
     });
 </script>
-
+<script src="/js/toggle_follow.js"></script>
+<script>
+    $('.toggle-follow-button').each(function(){
+        let self=this;
+        let toggleFollow=new ToggleFollow(self);
+    });
+</script>

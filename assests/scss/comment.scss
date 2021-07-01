@@ -1,0 +1,36 @@
+li{
+    display: flex;
+    list-style: none;
+    justify-content: flex-start;
+    padding-bottom: 1rem;
+    div{
+        img{
+            height:3rem;
+            width: 3rem;
+            border-radius: 50%;
+        }
+        .name{
+            text-decoration: none;
+            position: relative;
+            top:-40%;
+            color: blueviolet;
+        }
+        .name:hover{
+            border-bottom: 1px solid black;
+        }
+    }
+    .comment-content{
+        position: relative;
+        margin-top: 0.8rem;
+        padding-left:1rem;
+        width: 35%;
+        overflow:auto;
+    }
+    .comment-like{
+        margin-top: 0.8rem;
+        a{
+            text-decoration: none;
+            color:blueviolet
+        }
+    }
+}
