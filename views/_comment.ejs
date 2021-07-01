@@ -8,7 +8,7 @@
         
         <div class="comment-like">
             <% if(locals.user){%>
-                <a class="toggle-like-button" data-likes="<%= comment.likes.length%>"href="/like/toggle/?id=<%=comment._id%>&type=Comment"><i class="far fa-heart red"></i>&nbsp;<%= comment.likes.length%>&nbsp;Likes</a>
+                <a class="toggle-like-button" data-likes="<%= comment.likes.length%>"href="/like/toggle/?id=<%=comment.id%>&type=Comment"><i class="far fa-heart red"></i>&nbsp;<%= comment.likes.length%>&nbsp;Likes</a>
                 <%}else{%>
                     <%= comment.likes.length%>Likes
                 <%}%>
@@ -20,10 +20,3 @@
             <% } %>   
 
 </li>
-<script src="/js/toggle_likes.js"></script>
-<script>
-    $('.toggle-like-button').each(function(){
-        let self=this;
-        let toggleLike=new ToggleLike(self);
-    });
-</script>

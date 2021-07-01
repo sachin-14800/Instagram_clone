@@ -39,9 +39,11 @@
 #user-chat-box #chat-messages-list {
   list-style: none;
   padding: 10px;
-  height: 70%;
+  height: 60%;
   background-color: white;
   overflow: auto;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 #user-chat-box #chat-messages-list .other-message {

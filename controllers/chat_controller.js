@@ -26,7 +26,7 @@ module.exports.chatting=async function(req,res){
     else
     room=touser.id+fromuser.id;
     let message=await Message.find({room:room})
-    .sort({"-createdAt":1})
+    .sort('-createdAt')
     .populate('from_user')
     .populate('to_user');
     

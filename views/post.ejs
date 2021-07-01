@@ -51,3 +51,10 @@
 
 </div>
 </div>
+<script src="/js/toggle_likes.js"></script>
+<script>
+    $('.toggle-like-button').each(function(){
+        let self=this;
+        let toggleLike=new ToggleLike(self);
+    });
+</script>

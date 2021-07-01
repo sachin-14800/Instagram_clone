@@ -54,7 +54,7 @@ class ChatEngine{
         });
 
         self.socket.on('receive_message',function(data){
-            console.log('message received',data.message);
+            // console.log('message received',data.message);
 
             let newMessage=$('<li>');
             let messageType='other-message';
@@ -66,9 +66,26 @@ class ChatEngine{
                 'html':data.message
             }));
             newMessage.addClass(messageType);
-            $('#chat-messages-list').append(newMessage);
+            $('#chat-messages-list').prepend(newMessage);
             $('#chat-message-input').val('');
-            $('#chat-messages-list').scrollBy({ top: 52, left: 0, behavior: 'smooth' });
+            scroll_to_bottom($('#chat-message-input'));
         });   
     }
+}
+var scroll_to_bottom = function(element){
+    var tries = 0, old_height = new_height = element.height();
+    var intervalId = setInterval(function() {
+        if( old_height != new_height ){    
+            // Env loaded
+            clearInterval(intervalId);
+            element.animate({ scrollTop: new_height }, 'slow');
+        }else if(tries >= 30){
+            // Give up and scroll anyway
+            clearInterval(intervalId);
+            element.animate({ scrollTop: new_height }, 'slow');
+        }else{
+            new_height = element.height();
+            tries++;
+        }
+    }, 100);
 }
