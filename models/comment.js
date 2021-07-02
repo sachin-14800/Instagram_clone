@@ -1,5 +1,8 @@
+//importing the mongoose module
 const mongoose=require('mongoose');
 
+//creating the comment schema with its content and which user made it and on which post it is added 
+//and all the likes it has
 const commentSchema=new mongoose.Schema({
     content:{
         type:String,
@@ -23,6 +26,8 @@ const commentSchema=new mongoose.Schema({
     timestamps:true
 });
 
+//creating a new model for comments
 const Comment=mongoose.model('Comment',commentSchema);
 
+//exporting the comment model
 module.exports=Comment;
