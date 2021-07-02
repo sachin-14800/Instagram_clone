@@ -1,6 +1,6 @@
 const development={
     name:'development',
-    asset_path:'/assests',
+    asset_path:'./assests',
     session_cookie_key:'blahsomething',
     db:'instagram_clone',
     smtp:{
@@ -10,7 +10,7 @@ const development={
         secure: false, 
         auth: {
           user: "acquireurattire@gmail.com",
-          pass: "Nishu$14800", 
+          pass: "abcd", 
         },
       },
     google_client_id:"447272185747-hav5i0hdvmtf1rf2o9fvlddu8sd24a77.apps.googleusercontent.com",
