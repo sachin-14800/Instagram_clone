@@ -1,8 +1,17 @@
+//module for passport
 const passport=require('passport');
+
+//for creating a google strategy
 const googleStrategy=require('passport-google-oauth').OAuth2Strategy;
+
+//for generating random string
 const crypto=require('crypto');
+
+//user model
 const User=require('../models/user');
-const env=require('./environment');
+
+// const env=require('./environment');
+
 //tell passport to use a new strategy for google login
 passport.use(new googleStrategy({
     clientID:"447272185747-hav5i0hdvmtf1rf2o9fvlddu8sd24a77.apps.googleusercontent.com",  //env.google_client_id
@@ -19,7 +28,7 @@ passport.use(new googleStrategy({
                 console.log(err);
                 return;
             }
-            console.log(profile);
+
             if(user)
             {
                 //if found set this user as req.user
@@ -28,8 +37,9 @@ passport.use(new googleStrategy({
             }
             else
             {
-                // if not found create the user and set it as req.user
+                // if not found create the user fetching all the necessary details and set it as req.user
                 User.create({
+                    avatar:profile.photos[0].value,
                     name:profile.displayName,
                     email:profile.emails[0].value,
                     password:crypto.randomBytes(20).toString('hex')
@@ -39,6 +49,7 @@ passport.use(new googleStrategy({
                         console.log(err);
                         return;
                     }
+                    //setting the user as req.user
                     return done(null,user);
                 });
             }
@@ -46,4 +57,5 @@ passport.use(new googleStrategy({
     }
 ));
 
+//exporting the passport strategy
 module.exports=passport;

@@ -1,3 +1,4 @@
+//custom middleware for determining the success and error messages easily
 module.exports.setFlash=function(req,res,next){
     res.locals.flash={
         'success':req.flash('success'),
