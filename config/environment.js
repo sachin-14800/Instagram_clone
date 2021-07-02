@@ -1,3 +1,5 @@
+//not used 
+
 const development={
     name:'development',
     asset_path:'./assests',
@@ -9,7 +11,7 @@ const development={
         port: 587,
         secure: false, 
         auth: {
-          user: "acquireurattire@gmail.com",
+          user: "use your own",
           pass: "abcd", 
         },
       },
