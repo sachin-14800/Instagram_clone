@@ -1,6 +1,9 @@
+//importing the mongoose module
 const mongoose=require('mongoose');
 
+//creating the schema for message model for storing user messages
 const messageSchema=new mongoose.Schema({
+    //room id of users
     room:{
         type:String,
     },
@@ -19,5 +22,8 @@ const messageSchema=new mongoose.Schema({
     timestamps:true
 });
 
+//creating the model for messages
 const Messages=mongoose.model('Messages',messageSchema);
+
+//exporting the model
 module.exports=Messages;

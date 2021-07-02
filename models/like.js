@@ -1,5 +1,7 @@
+//importing the mongoose module
 const mongoose=require('mongoose');
 
+//creating the like schema
 const likeSchema=mongoose.Schema({
     user:{
         type:mongoose.Schema.ObjectId,
@@ -10,7 +12,7 @@ const likeSchema=mongoose.Schema({
         require:true,
         refPath:'onModel'
     },
-    //this field is for defining the type of the liked object since this is a dynamic reference.
+    //this field is for defining the type of the liked object 
     onModel:{
         type:String,
         require:true,
@@ -20,5 +22,8 @@ const likeSchema=mongoose.Schema({
     timestamps:true
 });
 
+//creating the like model
 const Like=mongoose.model('Like',likeSchema);
+
+//exporting the model
 module.exports=Like;
