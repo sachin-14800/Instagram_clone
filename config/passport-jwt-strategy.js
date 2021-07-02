@@ -1,15 +1,21 @@
 const passport=require('passport');
+//importing jwt strategy
 const JWTStrategy=require('passport-jwt').Strategy;
 //extract JWT from header
 const ExtractJWT=require('passport-jwt').ExtractJwt;
+
+//user model
 const User=require('../models/user');
-const env=require('./environment');
+
+// const env=require('./environment');
+
 //header has list of keys has key authorisation and that also has list of keys and key named bearer having the JWT token
 let opts={
     jwtFromRequest:ExtractJWT.fromAuthHeaderAsBearerToken(),
     secretOrKey:'Instagram' //env.jwt_secret
 }
 
+//telling passport to use the jwt authentication and find the user
 passport.use(new JWTStrategy(opts,function(JwtPayLoad,done){
     User.findById(JwtPayLoad._id,function(err,user){
         if(err)
