@@ -1,0 +1,85 @@
+.body {
+  display: flex;
+  background-color: #fdf8e5;
+  position: relative;
+  flex-direction: row;
+  padding-top: 2rem;
+  border-radius: 1rem;
+  width: 80%;
+  height: 85%;
+  left: 10%;
+}
+
+.body .following {
+  width: 50%;
+  padding-left: 2rem;
+  border-right: 2px solid black;
+}
+
+.body .followers {
+  width: 50%;
+  padding-left: 2rem;
+}
+
+.body .list {
+  position: relative;
+  height: 90%;
+  overflow-y: scroll;
+}
+
+.body .list .user {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  position: relative;
+  width: 80%;
+  background-color: #ead6fd;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+}
+
+.body .list .user .user-image {
+  padding-left: 1rem;
+  padding-top: 1rem;
+}
+
+.body .list .user .user-image img {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+}
+
+.body .list .user .user-name {
+  position: relative;
+  left: -20%;
+  padding-top: 1.8rem;
+}
+
+.body .list .user .user-name a {
+  text-decoration: none;
+  color: blueviolet;
+}
+
+.body .list .user .user-name a:hover {
+  border-bottom: 1px solid black;
+}
+
+.body .list .user .chat-button {
+  padding-top: 1.8rem;
+  position: relative;
+  left: -20%;
+}
+
+.body .list .user .chat-button a {
+  text-decoration: none;
+  border: 2px solid blueviolet;
+  padding: 0.5rem;
+  background-color: #e5e1e9;
+  font-weight: bold;
+  color: brown;
+}
+
+.body .list::-webkit-scrollbar {
+  display: none;
+}

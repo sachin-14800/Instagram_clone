@@ -1,0 +1,192 @@
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#feed-posts {
+  width: 60%;
+  position: relative;
+  left: 15%;
+}
+
+#feed-posts #home-posts-container {
+  height: auto;
+  width: 80%;
+  position: relative;
+}
+
+#feed-posts #home-posts-container #post-list-container ul {
+  display: block;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li {
+  position: relative;
+  list-style: none;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div {
+  position: relative;
+  background-color: #fdf9f3;
+  display: flex;
+  width: auto;
+  border-radius: 2rem;
+  flex-direction: column;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  padding-left: 2.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-heading .info {
+  position: relative;
+  left: 60%;
+  padding-top: 1rem;
+  font-size: 1.5rem;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-heading .info a {
+  color: blueviolet;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-heading .user-name {
+  padding-top: 1rem;
+  padding-left: 1rem;
+  font-weight: bold;
+  color: blueviolet;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-heading .user-name a {
+  text-decoration: none;
+  color: blueviolet;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-heading .user-name a:hover {
+  border-bottom: 1px solid black;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-heading img {
+  position: relative;
+  height: 3.5rem;
+  width: 3.5rem;
+  border-radius: 50%;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-image img {
+  height: 40rem;
+  width: 40rem;
+  align-self: center;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .toggle-like-button {
+  text-decoration: none;
+  display: inline;
+  padding-right: 1rem;
+  color: black;
+  padding-left: 2rem;
+  padding-top: 1rem;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .red {
+  color: red;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-content {
+  padding-left: 2.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: row;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-content .user-name {
+  font-weight: bold;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-content .user-name a {
+  text-decoration: none;
+  color: blueviolet;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-content .user-name a:hover {
+  border-bottom: 1px solid black;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-comments {
+  padding-left: 2.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-comments form {
+  height: 2.5rem;
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-comments form input {
+  border: none;
+  position: relative;
+  height: auto;
+  width: fit-content;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-comments form input[type=text] {
+  width: 85%;
+}
+
+#feed-posts #home-posts-container #post-list-container ul li div .post-comments form input[type=submit] {
+  width: 10%;
+  color: blueviolet;
+  font-weight: bold;
+  background-color: white;
+}
+
+#aside {
+  width: 30%;
+  position: relative;
+  height: 100%;
+  left: -3%;
+}
+
+#aside .inside-aside {
+  position: relative;
+  height: 70%;
+}
+
+#aside .aside-container {
+  display: flex;
+  flex-direction: row;
+}
+
+#aside .aside-container div {
+  text-decoration: none;
+}
+
+#aside .aside-container div img {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+}
+
+#aside .aside-container .user-name {
+  padding: 7%;
+  font-size: 1.5rem;
+  font-family: sans-serif;
+}
+
+#aside .aside-container .user-name a {
+  text-decoration: none;
+}
+
+#aside .users .follower a {
+  text-decoration: none;
+  color: blueviolet;
+  font-size: 1.2rem;
+}

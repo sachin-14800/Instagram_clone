@@ -1,0 +1,112 @@
+body {
+  background-color: #fafafa;
+}
+
+section {
+  position: relative;
+  margin-top: 2.5%;
+  width: 70%;
+  left: 15%;
+}
+
+section .user-details {
+  display: flex;
+  flex-direction: row;
+}
+
+section .user-details .user-image {
+  position: relative;
+  width: 30%;
+}
+
+section .user-details .user-image img {
+  border-radius: 50%;
+  height: 10rem;
+  width: 10rem;
+}
+
+section .user-details .details {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+section .user-details .details .detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+section .user-details .details .detail button {
+  background-color: #f8e7e7;
+  border: 1px solid palevioletred;
+  box-shadow: 1px 2px 2px 1px plum;
+  border-radius: 10%;
+}
+
+section .user-details .details .detail button .toggle-follow-button {
+  text-decoration: none;
+  color: blueviolet;
+  font-weight: bold;
+}
+
+section .user-details .details .detail .name {
+  font-size: 2rem;
+  position: relative;
+  width: 60%;
+}
+
+section .user-details .details .detail .edit {
+  font-size: 1rem;
+  text-decoration: none;
+  border: 1px solid lightgray;
+  padding: 0.5rem;
+  border-radius: 10%;
+  font-weight: bold;
+}
+
+section .user-details .details .detail .edit a {
+  text-decoration: none;
+  color: black;
+}
+
+section .user-details .details .detail .number {
+  font-size: 1.3rem;
+}
+
+section .user-details .details .detail .follower {
+  font-size: 1.3rem;
+}
+
+section #post-list-container {
+  margin-top: 2rem;
+}
+
+section #post-list-container ul {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  list-style: none;
+}
+
+section #post-list-container ul li {
+  position: relative;
+  width: 31%;
+}
+
+section #post-list-container ul li .post-image {
+  position: relative;
+  margin-right: 3%;
+  margin-bottom: 3%;
+}
+
+section #post-list-container ul li .post-image img {
+  position: relative;
+  width: 100%;
+  height: 18rem;
+}

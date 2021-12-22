@@ -1,0 +1,40 @@
+li {
+  display: flex;
+  list-style: none;
+  justify-content: flex-start;
+  padding-bottom: 1rem;
+}
+
+li div img {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+}
+
+li div .name {
+  text-decoration: none;
+  position: relative;
+  top: -40%;
+  color: blueviolet;
+}
+
+li div .name:hover {
+  border-bottom: 1px solid black;
+}
+
+li .comment-content {
+  position: relative;
+  margin-top: 0.8rem;
+  padding-left: 1rem;
+  width: 32%;
+  overflow: auto;
+}
+
+li .comment-like {
+  margin-top: 0.8rem;
+}
+
+li .comment-like a {
+  text-decoration: none;
+  color: blueviolet;
+}
