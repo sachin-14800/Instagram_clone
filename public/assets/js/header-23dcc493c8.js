@@ -1,0 +1,1 @@
+{let n=!0;$("#user-class").on("click",(function(){n?($(".hidden").css("display","inline"),n=!1):($(".hidden").css("display","none"),n=!0)}))}

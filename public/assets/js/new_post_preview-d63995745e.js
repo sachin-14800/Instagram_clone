@@ -1,0 +1,1 @@
+new_post_preview.onchange=()=>{const[e]=new_post_preview.files;e&&(blah.src=URL.createObjectURL(e))};
