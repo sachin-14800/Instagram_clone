@@ -12,7 +12,7 @@ const accessLogStream=rfs.createStream('access.log',{
 
 const development={
     name:'development',
-    asset_path:'/assets',
+    asset_path:'./assets',
     session_cookie_key:'blahsomething',
     db:'instagram_clone',
     smtp:{
@@ -60,4 +60,4 @@ const production={
     }
 }
 
-module.exports=eval(process.env.INSTAGRAM_CLONE_ENVIRONMENT)==undefined ? development :eval(process.env.INSTAGRAM_CLONE_ENVIRONMENT);
+module.exports=development;

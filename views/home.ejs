@@ -44,14 +44,14 @@
             </div>
     </div>
 </section>
-<script src="/js/toggle_likes.js"></script>
+<script src="<%=assetPath('js/toggle_likes.js')%>"></script>
 <script>
     $('.toggle-like-button').each(function(){
         let self=this;
         let toggleLike=new ToggleLike(self);
     });
 </script>
-<script src="/js/toggle_follow.js"></script>
+<script src="<%=assetPath('js/toggle_follow.js')%>"></script>
 <script>
     $('.toggle-follow-button').each(function(){
         let self=this;
