@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/newPost.css">
+<link rel="stylesheet" href="<%= assetPath('css/newPost.css')%>">
 <% if(locals.user) {%>
     <form action="/post/create" id="new-post-form" enctype="multipart/form-data" method="POST">
         <div class="home">
@@ -13,4 +13,4 @@
         
     </form>
     <% } %>
-    <script src="/js/new_post_preview.js"></script>
+    <script src="<%= assetPath('js/new_post_preview.js')%>"></script>

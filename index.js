@@ -7,17 +7,19 @@ const env=require('./config/environment');
 
 const logger=require('morgan');
 
-//module for ejs layout for frontend
-const expressEjsLayouts = require('express-ejs-layouts');
-
 //module for cookies of the site
 const cookieParser=require('cookie-parser');
 
-//importing the config database file
-const db=require('./config/mongoose');
-
 //creating a new express app
 const app=express();
+
+require('./config/view-helpers')(app);
+
+//module for ejs layout for frontend
+const expressEjsLayouts = require('express-ejs-layouts');
+
+//importing the config database file
+const db=require('./config/mongoose');
 
 //module for session of a particular user
 const session=require('express-session');

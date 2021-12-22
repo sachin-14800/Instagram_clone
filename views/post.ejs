@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/post.css">
+<link rel="stylesheet" href="<%= assetPath('css/post.css')%>">
 <div class="post"> 
 <div class="post-image"><img src="<%= post.path %>" alt="<%= post.user.name %>" width="100"></div>
 <div class="all-info">
@@ -51,7 +51,7 @@
 
 </div>
 </div>
-<script src="/js/toggle_likes.js"></script>
+<script src="<%= assetPath('js/toggle_likes.js') %>"></script>
 <script>
     $('.toggle-like-button').each(function(){
         let self=this;

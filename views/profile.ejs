@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/profile.css">
+<link rel="stylesheet" href="<%=assetPath('css/profile.css')%>">
 
 
 <section>
@@ -42,7 +42,7 @@
     </ul>
 </div>
 </section>
-<script src="/js/toggle_follow.js"></script>
+<script src="<%= assetPath('js/toggle_follow.js')%>"></script>
 <script>
     $('.toggle-follow-button').each(function(){
         let self=this;

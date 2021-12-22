@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/edit_profile.css">
+<link rel="stylesheet" href="<%= assetPath('css/edit_profile.css')%>">
 
 <div class="editprofile">
     <form action="/user/update/<%=user._id%>" method="POST" class="update-user-form" enctype="multipart/form-data">
@@ -14,4 +14,4 @@
        <div><div class="bio"> Bio</div><input type="text" name="bio" id="bio"value="<%=user.bio%>"></div>
     </form>
 </div>
-<script src="/js/new_post_preview.js"></script>
+<script src="<%=assetPath('js/new_post_preview.js')%>"></script>

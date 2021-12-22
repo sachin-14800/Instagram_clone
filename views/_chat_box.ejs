@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/chat_box.css">
+<link rel="stylesheet" href="<%=assetPath('css/chat_box.css')%>">
 
 <% if (locals.user){ %>
 	<div id="user-chat-box">
@@ -32,7 +32,7 @@
 	</div>
 <% } %>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.5/socket.io.js" integrity="sha512-2rUSTSAeOO02jF6eBqENNqPs1EohenJ5j+1dgDPdXSLz9nOlrr8DJk4zW/lDy8rjhGCSonW3Gx812XJQIKZKJQ==" crossorigin="anonymous"></script>
-<script src="/js/chat_engine.js"></script>
+<script src="<%= assetPath('js/chat_engine.js')%>"></script>
 <% if (locals.user){ %>
 <script>
     new ChatEngine('user-chat-box', '<%= from_user._id %>','<%=to_user._id%>');
