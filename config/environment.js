@@ -1,8 +1,7 @@
-//not used 
 
 const development={
     name:'development',
-    asset_path:'./assests',
+    asset_path:'/assests',
     session_cookie_key:'blahsomething',
     db:'instagram_clone',
     smtp:{
@@ -13,7 +12,7 @@ const development={
         auth: {
           user: "use your own",
           pass: "abcd", 
-        },
+        }
       },
     google_client_id:"447272185747-hav5i0hdvmtf1rf2o9fvlddu8sd24a77.apps.googleusercontent.com",
     google_client_secret:"N9MgTsxuD2kuy_-1SHnQfDAa",
@@ -36,10 +35,10 @@ const production={
           pass: process.env.INSTAGRAM_CLONE_GMAIL_PASSWORD, 
         },
       },
-    google_client_id:process.env.GOOGLE_CLIENT_ID,
-    google_client_secret:process.env.GOOGLE_CLIENT_SECRET,
-    google_call_back_url:process.env.GOOGLE_CALLBACK_URL,
+    google_client_id:process.env.INSTAGRAM_CLONE_GOOGLE_CLIENT_ID,
+    google_client_secret:process.env.INSTAGRAM_CLONE_GOOGLE_CLIENT_SECRET,
+    google_call_back_url:process.env.INSTAGRAM_CLONE_GOOGLE_CALLBACK_URL,
     jwt_secret:process.env.INSTAGRAM_CLONE_JWT_SECRET
 }
 
-module.exports=eval(process.env.NODE_ENV)==undefined ? development :eval(process.env.NODE_ENV);
+module.exports=eval(process.env.INSTAGRAM_CLONE_ENVIRONMENT)==undefined ? development :eval(process.env.INSTAGRAM_CLONE_ENVIRONMENT);

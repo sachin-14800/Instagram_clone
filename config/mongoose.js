@@ -1,10 +1,10 @@
 //importing the mongoose module
 const mongoose=require('mongoose');
 
-// const env=require('./environment');
+const env=require('./environment');
 
 //connecting to the database
-mongoose.connect('mongodb://localhost/instagram_clone'); //`mongodb://localhost/${env.db}`
+mongoose.connect(`mongodb://localhost/${env.db}`); //`mongodb://localhost/${env.db}`
 
 const db=mongoose.connection;
 //if some error occured

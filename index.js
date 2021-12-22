@@ -3,6 +3,7 @@ const port=8000;
 //module for express 
 const express=require('express');
 
+const env=require('./config/environment');
 // const env=require('./config/environment');
 
 //module for ejs layout for frontend
@@ -56,8 +57,8 @@ const path=require('path');
 
 //telling express to use sass middleware
 app.use(sassMiddleware({
-    src:'./assests/scss',
-    dest:'./assests/css',
+    src:path.join(__dirname,env.asset_path,'scss'),
+    dest:path.join(__dirname,env.asset_path,'css'),
     debug:true,
     outputStyle:'expanded',
     prefix:'/css',
@@ -68,7 +69,7 @@ app.use(express.urlencoded());
 app.use(cookieParser());
 
 //static files location
-app.use(express.static('./assests')); //path.join(__dirname,env.asset_path)
+app.use(express.static(env.asset_path)); //path.join(__dirname,env.asset_path)
 // make upload path available to the browser
 app.use('/uploads',express.static(__dirname+'/uploads'));
 //telling app to use express layouts
@@ -84,7 +85,7 @@ app.set('views','./views');
 //initialising the express session
 app.use(session({
     name:'instagram',
-    secret:'blahsomething',   //env.session_cookie_key
+    secret:env.session_cookie_key,   //env.session_cookie_key
     saveUninitialized:false,
     resave:false,
     cookie:{

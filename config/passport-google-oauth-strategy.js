@@ -10,13 +10,13 @@ const crypto=require('crypto');
 //user model
 const User=require('../models/user');
 
-// const env=require('./environment');
+const env=require('./environment');
 
 //tell passport to use a new strategy for google login
 passport.use(new googleStrategy({
-    clientID:"447272185747-hav5i0hdvmtf1rf2o9fvlddu8sd24a77.apps.googleusercontent.com",  //env.google_client_id
-    clientSecret:"N9MgTsxuD2kuy_-1SHnQfDAa", //env.google_client_secret
-    callbackURL:"http://localhost:8000/user/auth/google/callback", //env.google_call_back_url
+    clientID:env.google_client_id,
+    clientSecret:env.google_client_secret,
+    callbackURL:env.google_call_back_url
     },
 
     function(accessToken,refreshToken,profile,done)

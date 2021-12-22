@@ -27,7 +27,7 @@ module.exports.createSession=async function(req,res)
         return res.json(200,{
             message:"Sign in successful and here is your token keep it safe",
             data:{
-                token:jwt.sign(user.toJSON(),'Instagram',{expiresIn:'100000'}) //env.jwt_secret
+                token:jwt.sign(user.toJSON(),env.jwt_secret,{expiresIn:'100000'}) 
             }
         });
     }catch(err)
