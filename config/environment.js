@@ -60,4 +60,4 @@ const production={
     }
 }
 
-module.exports=development;
+module.exports=eval(process.env.INSTAGRAM_CLONE_ENVIRONMENT)==undefined ? development :eval(process.env.INSTAGRAM_CLONE_ENVIRONMENT);

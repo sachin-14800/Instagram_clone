@@ -67,7 +67,7 @@ try{
                });
            }
            req.flash('success','Post successfully deleted');
-           return res.redirect('back');
+           return res.redirect('/');
         }
         else{
             req.flash('error','You can not delete this post');
