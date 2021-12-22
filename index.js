@@ -4,7 +4,8 @@ const port=8000;
 const express=require('express');
 
 const env=require('./config/environment');
-// const env=require('./config/environment');
+
+const logger=require('morgan');
 
 //module for ejs layout for frontend
 const expressEjsLayouts = require('express-ejs-layouts');
@@ -56,13 +57,16 @@ console.log('Chat server is running on port 5000');
 const path=require('path');
 
 //telling express to use sass middleware
-app.use(sassMiddleware({
-    src:path.join(__dirname,env.asset_path,'scss'),
-    dest:path.join(__dirname,env.asset_path,'css'),
-    debug:true,
-    outputStyle:'expanded',
-    prefix:'/css',
-}));
+if(env.name=='development')
+{
+    app.use(sassMiddleware({
+        src:path.join(__dirname,env.asset_path,'scss'),
+        dest:path.join(__dirname,env.asset_path,'css'),
+        debug:true,
+        outputStyle:'expanded',
+        prefix:'/css',
+    }));
+}
 
 app.use(express.urlencoded());
 //cookie parser
@@ -73,6 +77,9 @@ app.use(express.static(env.asset_path)); //path.join(__dirname,env.asset_path)
 // make upload path available to the browser
 app.use('/uploads',express.static(__dirname+'/uploads'));
 //telling app to use express layouts
+
+app.use(logger(env.morgan.mode,env.morgan.options));
+
 app.use(expressEjsLayouts);
 //set script and style true for ejs layouts
 app.set('layout extractStyles', true);
