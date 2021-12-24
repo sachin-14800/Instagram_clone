@@ -6,12 +6,7 @@ const Message=require('../models/messages');
 
 
 module.exports.chatSockets = function(socketServer){
-    let io = require('socket.io')(socketServer,{
-        allowRequest:(req,callback)=>{
-            const noOriginHeader=req.headers.origin===undefined;
-            callback(null,noOriginHeader);
-        }
-    });
+    let io = require('socket.io')(socketServer);
     //connecting the socket
     io.sockets.on('connection', function(socket){
         console.log('new connection received', socket.id);
