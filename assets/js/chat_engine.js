@@ -14,7 +14,7 @@ class ChatEngine{
             room=recieverid+userid;
         this.chatroom=room;
         //starting the socket
-        this.socket = io.connect('http://localhost:5000',{
+        this.socket = io.connect('http://15.207.249.226:5000',{
             withCredentials: true,
         });
         // function to start all socket events    

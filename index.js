@@ -70,7 +70,7 @@ if(env.name=='development')
     }));
 }
 
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended:false}));
 //cookie parser
 app.use(cookieParser());
 
