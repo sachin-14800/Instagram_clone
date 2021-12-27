@@ -15,7 +15,6 @@ const app=express();
 
 require('./config/view-helpers')(app);
 
-const cors=require('cors');
 
 //module for ejs layout for frontend
 const expressEjsLayouts = require('express-ejs-layouts');
@@ -76,7 +75,7 @@ app.use(express.urlencoded({extended:false}));
 //cookie parser
 app.use(cookieParser());
 
-app.use(cors());
+
 //static files location
 app.use(express.static(env.asset_path)); //path.join(__dirname,env.asset_path)
 // make upload path available to the browser

@@ -8,7 +8,7 @@ const Message=require('../models/messages');
 module.exports.chatSockets = function(socketServer){
     let io = require('socket.io')(socketServer,{
         cors:{
-            origin:'http://localhost:8000',
+            origin:'http://35.154.198.18:8000',
             methods: ["GET", "POST"],
             credentials: true
         }
