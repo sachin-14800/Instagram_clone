@@ -7,7 +7,7 @@
     <%for(chat of chats){%>
         <li class="user">
             <div class="user-image"><img src="<%=chat.to_user.avatar%>" alt="<%=chat.to_user.name%>"></div>
-            <div class="user-name"><a href="/user/prfoile/<%=chat.to_user.id%>"><%=chat.to_user.name%></a></div>
+            <div class="user-name"><a href="/user/profile/<%=chat.to_user.id%>"><%=chat.to_user.name%></a></div>
             <div class="chat-button"><a href="/chat/?from=<%=user._id%>&to=<%=chat.to_user.id%>">Chat</a></div>
         </li>
     <%}%>
